@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120"><style>
+@font-face {
+  font-family: 'Khula';
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Khula';
+  font-weight: 600;
+}
+</style><text x="0" y="90" font-family="Khula" font-weight="700" font-size="80" fill="#000000">Free</text><text x="165" y="90" font-family="Khula" font-weight="700" font-size="80" fill="#94E4A8">T</text><text x="205" y="90" font-family="Khula" font-weight="700" font-size="80" fill="#000000">ime</text><text x="350" y="90" font-family="Khula" font-weight="600" font-size="80" fill="#000000">Feed</text></svg>

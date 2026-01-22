@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration</title>
+  <style>
+   @import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Mada:wght@200..900&display=swap");
+  </style>
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <script src="/js/api.js" defer></script>
+  <script src="/js/register.js" defer></script>
+  <script src="/js/footer.js" defer></script>
+  <script src="/js/header.js" defer></script>
+ </head>
+ <body>
+  <page-header></page-header>
+  <main class="mainWrapper">
+   <h1 class="h1-register">
+    Free<span class="greenT">T</span>ime Feed Employee?
+   </h1>
+   <h2 class="h2-register">Let's sign up and start posting.</h2>
+
+   <div class="formWrapper">
+    <form class="registerForm" novalidate id="form">
+     <label>Name</label>
+     <input
+      id="nameInput"
+      type="text"
+      placeholder="Full name"
+      required
+      data-required />
+
+     <label>Email</label>
+     <input
+      id="emailInput"
+      type="email"
+      placeholder="email@freetimefeed.com"
+      required
+      data-required />
+
+     <label>
+      Password
+      <input
+       id="passwordInput"
+       type="password"
+       placeholder="******"
+       required
+       data-required />
+     </label>
+
+     <p class="pLoginText">Already have an account? <a href="#">Login</a></p>
+     <div id="inputError"></div>
+     <button type="submit" class="btn register-btn">Register</button>
+    </form>
+   </div>
+  </main>
+  <page-footer><p></p></page-footer>
+ </body>
+</html>

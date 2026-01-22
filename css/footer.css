@@ -1,0 +1,134 @@
+/* footer styling */
+
+.footerWrapper {
+ max-width: 100%;
+ background: var(--footer-color), var(--footer-base-color);
+}
+
+.footerWrapper::before {
+ content: "";
+ display: block;
+ height: 1px;
+ max-width: 800px;
+ width: 70%;
+ margin: 0 auto 48px;
+ background: linear-gradient(
+  to right,
+  transparent,
+  rgba(255, 255, 255, 0.7),
+  transparent
+ );
+}
+
+.footerContent {
+ padding: var(--padding-16px);
+}
+
+.footerTopText {
+ display: flex;
+ flex-direction: column;
+ gap: 24px;
+}
+
+.footerLogo {
+ margin-left: var(--padding-24px);
+}
+
+.footerWrapper img {
+ max-width: 60%;
+ height: auto;
+}
+
+.footerSlogan {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.liveMore {
+ color: #bb83a0;
+}
+
+.footerLinks {
+ display: flex;
+ justify-content: space-evenly;
+ padding: var(--padding-32px);
+}
+
+.footerSocialIcons {
+ display: flex;
+ justify-content: space-evenly;
+ padding: var(--padding-32px);
+}
+
+.footerPolicy {
+ display: flex;
+ justify-content: space-evenly;
+ padding: var(--padding-16px);
+ cursor: pointer;
+}
+
+.footerCopy {
+ display: flex;
+ justify-content: center;
+ align-items: baseline;
+ font-size: var(--small-text-size);
+}
+
+@media (min-width: 768px) {
+ .btn {
+  font-size: var(--h3-size-desktop);
+  padding: var(--padding-12px) var(--padding-24px);
+  border-radius: 30px;
+ }
+ .footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--padding-32px) 0;
+ }
+
+ .footerLogo {
+  display: flex;
+  justify-content: left;
+ }
+ .footerLogo img {
+  width: 200px;
+ }
+
+ .footerSlogan {
+  margin-bottom: var(--padding-32px);
+ }
+ .footerSlogan p {
+  font-size: var(--font-size-desktop-24px);
+ }
+
+ .footerLinks {
+  justify-content: center;
+  gap: var(--padding-40px);
+ }
+
+ .footerLinks a {
+  font-size: var(--font-size-desktop-24px);
+ }
+
+ .footerSocialIcons {
+  justify-content: center;
+  align-items: center;
+  gap: var(--padding-48px);
+ }
+
+ .footerSocialIcons img {
+  width: 3%;
+  max-width: 48px;
+  height: fit-content;
+ }
+
+ .footerPolicy {
+  justify-content: center;
+  gap: var(--padding-32px);
+ }
+
+ .footerPolicy p {
+  font-size: var(--h3-size-desktop);
+ }
+}

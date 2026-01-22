@@ -1,0 +1,178 @@
+* {
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}
+
+:root {
+ --main-bg-color: #474746;
+ --primary-color: #94e4a8;
+ --main-text-color: #fff;
+ --header-color: #fff;
+ --sidebar-color: #8c9993;
+ --black-color: #000000;
+ --styling-color: #889d8c;
+ --button-text-color: #000000;
+ --footer-base-color: radial-gradient(
+  579.8% 329.58% at 22.9% -98.68%,
+  rgba(218, 218, 218, 0.82) 13.94%,
+  rgba(220, 202, 213, 0.82) 57.21%,
+  rgba(214, 179, 197, 0.82) 77.81%
+ );
+ --footer-color: linear-gradient(
+  0deg,
+  rgba(0, 0, 0, 0) 0%,
+  rgba(0, 0, 0, 0.5) 50.46%,
+  #474746 100%
+ );
+
+ /* Buttons */
+ --primary-button: #94e4a8;
+ --secondary-button: #a58e9a;
+ --discard-button: #d15858;
+
+ /*Icons*/
+ --primary-icon-color: #a58e9a;
+ --socials-icon-color: #94e4a8;
+
+ /**** MOBILE ****/
+
+ /* Padding/margin */
+ --padding-4px: 4px;
+ --padding-8px: 8px;
+ --padding-12px: 12px;
+ --padding-16px: 16px;
+ --padding-24px: 24px;
+ --padding-32px: 32px;
+ --padding-40px: 40px;
+ --padding-48px: 48px;
+ --padding-56px: 56px;
+ --padding-64px: 64px;
+
+ --header-height: 70px;
+ /* Typography Mobile*/
+
+ --h1-font: "libre-franklin", arial;
+ --h1-size: 24px;
+ --h1-size-desktop: 48px;
+ --h1-color: #fff;
+
+ --h2-font: "mada", arial;
+ --h2-size: 20px;
+ --h2-size-desktop: 36px;
+ --h2-color: #fff;
+
+ --font-size-desktop-28px: 28px;
+ --font-size-desktop-24px: 24px;
+
+ --h3-font: "mada", arial;
+ --h3-size: 18px;
+ --h3-size-desktop: 20px;
+ --h3-color: #fff;
+
+ --p-font: "khula", arial;
+ --p-size: 16px;
+ --p-size-desktop: 18px;
+ --p-color: #fff;
+
+ --small-text-font: "khula", arial;
+ --small-text-size: 16px;
+ --small-text-color: #000000;
+}
+html,
+body {
+ height: 100%;
+ background-color: var(--main-bg-color);
+}
+
+section {
+ margin-top: var(--padding-32px);
+}
+
+/* .sticky-header {
+ max-width: 100%;
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ background: rgba(255, 255, 255, 0.9);
+ backdrop-filter: blur(8px);
+ border-bottom: 2px solid var(--styling-color);
+}
+
+.headerWrapper {
+ padding: var(--padding-16px);
+ background-color: var(--header-color);
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+} */
+
+.mainWrapper {
+ max-width: 393px;
+ margin: 0 auto;
+ padding: var(--padding-16px);
+}
+
+.btn {
+ padding: var(--padding-8px) var(--padding-16px);
+ border: none;
+ border-radius: 28px;
+ font-family: "khula", Arial, Helvetica, sans-serif;
+ font-size: var(--h3-size);
+ font-weight: 600;
+ color: var(--button-text-color);
+ background-color: var(--primary-button);
+ cursor: pointer;
+}
+
+h1 {
+ font-family: var(--h1-font);
+ font-size: var(--h1-size);
+ color: var(--h1-color);
+ line-height: 1.55;
+}
+
+h2 {
+ font-family: var(--h2-font);
+ font-size: var(--h2-size);
+ color: var(--h2-color);
+ line-height: 1.55;
+ font-weight: 400;
+}
+
+h3 {
+ font-family: var(--h3-font);
+ font-size: var(--h3-size);
+ color: var(--h3-color);
+}
+
+p {
+ font-family: var(--p-font);
+ font-size: var(--p-size);
+ color: var(--p-color);
+}
+
+li {
+ text-decoration: none;
+ font-family: var(--p-font);
+ color: var(--p-color);
+ font-weight: 600;
+}
+
+a {
+ text-decoration: none;
+ color: var(--main-text-color);
+ cursor: pointer;
+ font-family: var(--h3-font);
+ font-size: var(--h3-size);
+}
+
+/* Error message - input fields, when one field is missing */
+
+#inputError {
+ font-family: var(--small-text-font);
+ color: var(--discard-button);
+ font-size: var(--small-text-size);
+ text-align: center;
+ margin-bottom: var(--padding-8px);
+}
