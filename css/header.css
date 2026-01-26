@@ -1,40 +1,85 @@
 .mainHeader {
- display: flex;
- align-items: center;
- justify-content: space-between;
- padding: var(--padding-16px);
- background-color: var(--header-color);
+ max-width: 100%;
  position: sticky;
  top: 0;
  z-index: 2000;
- background: white;
+ background: var(--header-color);
 }
 
-.logo img {
+.innerHeader {
+ height: var(--header-height);
+ display: grid;
+ grid-template-columns: auto 1fr auto;
+ align-items: center;
+ padding: var(--padding-16px);
+ gap: var(--padding-16px);
+}
+
+.adminDeskHeader {
+ display: none;
+}
+.logoMobile img {
  width: 40px;
 }
-
-.navLinks a {
+.logoDesktop {
+ display: none;
+}
+.logoMobile {
+ width: 40px;
+}
+.navLinks {
  display: none;
 }
 
+/****** SIDEBAR MOBILE *******/
 .mobileMenu {
  position: fixed;
- width: 200px;
+ width: 180px;
  height: calc(100vh - var(--header-height));
- background:
-  linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)),
-  url("/images/sidebarImage-pawel-czerwinski-ymzs15Afjhg-unsplash\ 1.png");
- background-position: right center;
- background-size: cover;
- background-position: center;
- background-repeat: no-repeat;
+ background: var(--header-color);
+ border-left: 1px solid var(--styling-color);
+ box-shadow: -12px 0 30px rgba(0, 0, 0, 0.25);
+ border-top-left-radius: 15px;
+ border-bottom-left-radius: 15px;
  transform: translateX(100%);
  transition: transform 0.3s ease;
- padding: 20px;
+ padding: var(--padding-24px, var--padding-16px);
  z-index: 1000;
  top: var(--header-height);
  right: 0;
+}
+
+.mobileMenu a:hover {
+ color: var(--styling-color);
+ transform: translateX(4px);
+}
+
+.menuAdmin {
+ margin-top: var(--padding-72px);
+ padding-top: 16px;
+ border-top: 2px solid var(--styling-color);
+}
+
+.menuItem {
+ display: flex;
+ align-items: center;
+ gap: 24px;
+ font-size: var(--small-text-size);
+ font-weight: 500;
+ color: var(--main-bg-color);
+ padding: var(--padding-8px) 0;
+ transition: 0.2s ease;
+ text-decoration: none;
+}
+
+.menuItem img {
+ width: 18px;
+ height: 18px;
+}
+
+.menuItem:hover {
+ background: rgba(30, 28, 28, 0.08);
+ border-radius: 8px;
 }
 
 .mobileMenu.open {
@@ -42,6 +87,7 @@
 }
 
 .headerIcons {
+ justify-self: end;
  display: flex;
  align-items: center;
  gap: var(--padding-24px);
@@ -52,36 +98,88 @@
  border: none;
  padding: 8px;
  cursor: pointer;
+ width: 44px;
+ height: 44px;
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 .hamburgerBtn img {
  width: 28px;
  height: auto;
+ position: absolute;
+}
+
+.searchIconHeader {
+ width: 32px;
+ height: auto;
+}
+
+.iconOpen,
+.iconClose {
+ transition: opacity 0.2s ease;
 }
 
 .iconClose {
- display: none;
+ opacity: 0;
 }
 
 .hamburgerBtn.active .iconOpen {
- display: none;
+ opacity: 0;
 }
 
 .hamburgerBtn.active .iconClose {
- display: block;
+ opacity: 1;
 }
 
 @media (min-width: 767px) {
+ .innerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ }
+
+ .logo {
+  margin-left: 32px;
+ }
+
+ .headerIcons {
+  margin-right: 32px;
+ }
+ .adminDeskHeader {
+  display: block;
+  width: 40px;
+  height: auto;
+ }
+
  #hamburger {
   display: none;
  }
 
- .navLinks a {
-  display: flex;
-  gap: 32px;
-  color: var(--black-color);
+ .logoMobile {
+  display: none;
  }
 
+ .logoDesktop {
+  display: block;
+  height: 32px;
+ }
+
+ .logoDesktop img {
+  width: 128px;
+ }
+
+ .navLinks {
+  display: flex;
+  gap: 32px;
+  justify-self: center;
+  margin: 0 auto;
+ }
+ .navLinks a {
+  color: var(--main-bg-color);
+ }
  .mobileMenu {
   display: none;
  }

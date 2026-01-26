@@ -1,0 +1,121 @@
+.cardWrapper {
+ max-width: 360px;
+ border-radius: 18px;
+ overflow: visible;
+ background: var(--header-color);
+ box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+ margin: var(--padding-24px) auto;
+}
+
+.cardContent {
+ overflow: hidden;
+ border-radius: 18px 18px 0 0;
+ position: relative;
+ aspect-ratio: 4 / 3;
+}
+
+.cardContent img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ object-position: 50% 30%;
+}
+
+.cardOverlay {
+ position: absolute;
+ inset: 0;
+ display: grid;
+ place-items: center;
+ padding: 16px;
+ background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15));
+}
+
+.cardOverlay h1 {
+ text-align: center;
+ max-width: 70%;
+ line-height: 1.2;
+}
+
+.imageBadge {
+ position: absolute;
+ bottom: 24px;
+ left: 16px;
+ background: #d6b3c5;
+ color: var(--p-font-color);
+ font-size: var(--p-size);
+ font-family: var(--p-font);
+ padding: var(--padding-8px) var(--padding-32px);
+ border-radius: 38px;
+}
+
+.navBtn {
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ width: 50px;
+ height: 50px;
+ border-radius: 50%;
+ border: none;
+ background: #8ff0b5;
+ display: grid;
+ place-items: center;
+ cursor: pointer;
+}
+
+.navBtn img {
+ width: 18px;
+ height: 18px;
+ object-fit: contain;
+}
+
+.navBtn.left {
+ left: 12px;
+}
+
+.navBtn.right {
+ right: 12px;
+}
+
+.cardText {
+ padding: var(--padding-16px);
+}
+
+.minRead {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 8px;
+ margin-bottom: 8px;
+}
+
+.minRead p {
+ gap: 8px;
+ font-size: var(--p-size);
+ color: #666;
+}
+
+.textInfoBottom {
+ color: var(--p-color-black);
+ padding: var(--padding-24px);
+}
+
+.cardPageDots {
+ display: flex;
+ justify-content: center;
+ gap: 8px;
+ padding: 12px 0 16px;
+}
+
+.dot {
+ display: inline-block;
+ width: 10px;
+ height: 10px;
+ border-radius: 50%;
+ background: #9f9f9f;
+}
+
+.dot.active {
+    width: 24px;
+    border-radius: 6px;
+    background: var(--primary-color);
+}

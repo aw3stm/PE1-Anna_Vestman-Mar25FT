@@ -9,9 +9,54 @@
   </style>
   <link rel="stylesheet" href="./css/global.css" />
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/home.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/header.css" />
   <script src="./js/api.js" defer></script>
+  <script src="/js/footer.js" defer></script>
+  <script src="/js/header.js" defer></script>
  </head>
  <body>
-  <!--This is the main blog feed with carousel-->
+  <page-header></page-header>
+  <main class="mainWrapper">
+   <article class="cardWrapper">
+    <div class="cardContent">
+     <img
+      src="/images/Robotic.jpg"
+      alt="A teenage girl and boy building a robot together" />
+
+     <div class="cardOverlay">
+      <h1>Code. Build. Compete. Win</h1>
+      <span class="imageBadge">Robotic</span>
+      <button class="navBtn left">
+       <img src="/icons/chevronLeft.svg" alt="chevron left" />
+      </button>
+      <button class="navBtn right">
+       <img src="/icons/chevronRight.svg" alt="chevron right" />
+      </button>
+     </div>
+    </div>
+
+    <div class="cardText">
+     <div class="minRead">
+      <img src="/icons/clockReadingMin.svg" alt="Clock icon" />
+      <p>5 minutes read</p>
+     </div>
+
+     <p class="textInfoBottom">
+      Frank, a 17 year old boy who refuse to choose.In chess boxing, he plans
+      his next move one round and throws punches the next. It's fast, intense,
+      and never boring. Checkmate or knockout, Frank plays for both.
+     </p>
+    
+     <div class="cardPageDots">
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+     </div>
+     </div>
+   </article>
+  </main>
+  <page-footer><p></p></page-footer>
  </body>
 </html>

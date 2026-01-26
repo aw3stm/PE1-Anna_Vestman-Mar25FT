@@ -1,11 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+   @import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Mada:wght@200..900&display=swap");
+  </style>
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <script src="/js/api.js" defer></script>
+  <script src="/js/login.js" defer></script>
+  <script src="/js/footer.js" defer></script>
+  <script src="/js/header.js" defer></script>
+ </head>
+ <body>
+  <page-header></page-header>
+  
+  <main class="mainWrapper">
+   <h1 class="h1-register">
+    Free<span class="greenT">T</span>ime Feed Employee?
+   </h1>
+<div class="formWrapper">
+   <form class="loginForm" novalidate id="form">
+    <div class="inputGroup">
+     <span class="inputIcon">
+      <img src="/icons/adminIconGreen.png" alt="Login icon" />
+     </span>
+
+     <input
+      id="emailInput"
+      type="email"
+      placeholder="email@freetimefeed.com"
+      required
+      data-required />
+    </div>
+
+    <div class="inputGroup">
+     <span class="inputIcon">
+      <img src="/icons/passwordIconGreen.png" alt="Login icon" />
+     </span>
+     <input
+      id="passwordInput"
+      type="password"
+      placeholder="Password"
+      required
+      data-required />
+    </div>
+   </form>
+
+  
+    <p class="pLoginText">Forgot your password?<a href="#">Reset</a>
+    <div id="inputError"></div>
+    <button type="submit" class="btn register-btn">Login</button>
+  
+  </main>
+  <page-footer><p></p></page-footer>
+  
+ </body>
+
 </html>

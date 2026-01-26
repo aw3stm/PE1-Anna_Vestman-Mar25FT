@@ -31,7 +31,9 @@
 }
 
 .footerLogo {
- margin-left: var(--padding-24px);
+display: flex;
+justify-content: left;
+margin-left: 16px;
 }
 
 .footerWrapper img {
@@ -51,20 +53,23 @@
 
 .footerLinks {
  display: flex;
- justify-content: space-evenly;
+ justify-content: center;
+ gap: var(--padding-12px);
  padding: var(--padding-32px);
 }
 
 .footerSocialIcons {
  display: flex;
- justify-content: space-evenly;
+ justify-content: center;
+ gap: var(--padding-32px);
  padding: var(--padding-32px);
 }
 
 .footerPolicy {
  display: flex;
- justify-content: space-evenly;
- padding: var(--padding-16px);
+ justify-content: center;
+ gap: var(--padding-16px);
+ margin-bottom: var(--padding-16px);
  cursor: pointer;
 }
 
@@ -84,12 +89,13 @@
  .footerContent {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--padding-32px) 0;
+  padding: var(--padding-32px);
  }
 
  .footerLogo {
   display: flex;
   justify-content: left;
+  margin-left: 24px;
  }
  .footerLogo img {
   width: 200px;
@@ -105,6 +111,7 @@
  .footerLinks {
   justify-content: center;
   gap: var(--padding-40px);
+  padding: var(--padding-40px);
  }
 
  .footerLinks a {
@@ -118,7 +125,7 @@
  }
 
  .footerSocialIcons img {
-  width: 3%;
+  width: 5%;
   max-width: 48px;
   height: fit-content;
  }
@@ -126,6 +133,7 @@
  .footerPolicy {
   justify-content: center;
   gap: var(--padding-32px);
+  padding: var(--padding-40px);
  }
 
  .footerPolicy p {

@@ -5,16 +5,22 @@
 
 .h1-register,
 .h2-register {
+ margin-top: var(--padding-32px);
  text-align: center;
+}
+
+.mainWrapper {
+ max-width: 768px;
+ margin: 0 auto;
+ padding: 0 var(--padding-24px);
 }
 
 .formWrapper {
  max-width: 420px;
- display: flex;
- align-items: center;
- justify-content: center;
- padding: var(--padding-8px);
+ margin: 0 auto;
+ padding: var(--padding-24px);
 }
+
 .registerForm {
  width: 100%;
 }
@@ -25,29 +31,31 @@
  border: none;
  border-bottom: 1px solid var(--styling-color);
  padding: var(--padding-8px);
- font-size: 0.95rem;
+ font-size: var(--p-font);
  color: white;
  outline: none;
 }
 
 .registerForm label {
- font-family: var(--p-font);
+ font-family: var(--h3-font);
  color: var(--main-text-color);
+ font-size: var(--h3-size);
  display: block;
  margin-top: var(--padding-16px);
 }
 
 .pLoginText {
- text-align: center;
+ justify-self: right;
  font-size: var(--small-text-size);
  color: white;
- margin: 22px 0 18px;
+ margin: 16px 0 32px;
 }
 
 .pLoginText a {
  color: var(--styling-color);
  text-decoration: none;
  font-weight: 500;
+ margin-left: 4px;
 }
 
 .register-btn {
@@ -58,9 +66,6 @@
 }
 
 @media (min-width: 768px) {
- .mainWrapper {
-  max-width: 768px;
- }
  .formWrapper {
   max-width: 600px;
   margin: 0 auto;
@@ -79,12 +84,81 @@
  .registerForm label {
   font-size: var(--h3-size-desktop);
  }
+
+ .register-btn {
+  max-width: 250px;
+ }
+}
+
+/********* LOG IN ********/
+.loginForm {
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ gap: var(--padding-32px);
+ margin-top: var(--padding-40px);
+}
+
+.inputGroup {
+ display: flex;
+ height: 56px;
+ align-items: center;
+ background: var(--primary-bg-color);
+ border: 1px solid var(--styling-color);
+ border-radius: 8px;
+}
+
+.inputIcon {
+ height: 100%;
+ width: 56px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background: #a2a3a3;
+ border-radius: 8px;
+ margin-right: 10px;
+}
+
+.inputIcon img {
+ width: auto;
+ height: 20px;
+}
+
+.inputGroup input {
+ flex: 1;
+ width: 100%;
+ background: transparent;
+ border: none;
+ outline: none;
+ color: white;
+ font-size: var(--p-font);
+ font-family: var(--p-font);
+}
+
+.inputGroup input::placeholder {
+ color: var(--main-text-color);
+}
+
+
+@media (min-width: 768px) {
+ .loginForm {
+  display: flex;
+  font-size: var(--h3-size-desktop);
+  padding: var(--padding-32px) 0;
+  flex-direction: column;
+  gap: var(--padding-32px);
+  margin-top: var(--padding-40px);
+  margin: 0 auto;
+ }
+
+ .inputGroup {
+  max-width: 900px;
+ }
  .pLoginText {
   font-size: var(--font-size-desktop-20px);
-  margin: 28px 0 22px;
   justify-self: right;
+  margin-top: 0;
  }
- 
  .register-btn {
   max-width: 250px;
  }
