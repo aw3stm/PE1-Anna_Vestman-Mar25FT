@@ -13,6 +13,7 @@
  --black-color: #000000;
  --styling-color: #889d8c;
  --button-text-color: #000000;
+ --delete-btn-color: #d15858;
  --footer-base-color: radial-gradient(
   579.8% 329.58% at 22.9% -98.68%,
   rgba(218, 218, 218, 0.82) 13.94%,
@@ -85,11 +86,19 @@
  --small-text-color: #000000;
 }
 
-
 html,
 body {
  height: 100%;
  background-color: var(--main-bg-color);
+}
+
+body {
+ display: flex;
+ flex-direction: column;
+}
+
+main {
+ flex: 1;
 }
 
 section {
@@ -97,9 +106,13 @@ section {
 }
 
 .btn {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ line-height: 1.5;
  position: relative;
  overflow: hidden;
- padding: var(--padding-8px) var(--padding-16px);
+ padding: var(--padding-12px) var(--padding-16px);
  border: none;
  border-radius: 28px;
  font-family: "khula", Arial, Helvetica, sans-serif;
@@ -143,6 +156,17 @@ section {
 
 .btn:hover::after {
  left: 100%;
+}
+
+.deleteBtn {
+ background-color: transparent;
+ border: 1px solid var(--delete-btn-color);
+}
+
+.deleteBtn:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 8px 20px rgba(159, 227, 178, 0.35);
+ background: transparent;
 }
 
 h1 {
@@ -189,10 +213,14 @@ a {
 
 /* Error message - input fields, when one field is missing */
 
-#inputError {
+#errorText {
  font-family: var(--small-text-font);
  color: var(--discard-button);
  font-size: var(--small-text-size);
  text-align: center;
  margin-bottom: var(--padding-8px);
+}
+
+.hidden {
+ display: none !important;
 }

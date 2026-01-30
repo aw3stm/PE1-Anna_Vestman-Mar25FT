@@ -1,132 +1,161 @@
+import { isAdmin, isLoggedIn, logout } from "./auth.js";
+
 class PageHeader extends HTMLElement {
  connectedCallback() {
   this.innerHTML = `
 
 <header class="mainHeader">
-  <div class="innerHeader">
-    <div class="logo">
-     <a href="/index.html">
-    <img src="/icons/Mobile Logo.svg"
-    class="logoMobile"
-    alt="FreeTime mobile logo"></a>
+ <div class="innerHeader">
 
-  <img src="/icons/FreeTime_Feed_brown_desktop.svg" 
-    class="logoDesktop"
-    alt="FreeTime Feed desktop logo">
+  <div class="logo">
+   <a href="/index.html">
+    <img src="/icons/Mobile Logo.svg" class="logoMobile" alt="FreeTime mobile logo">
+   </a>
+
+   <a href="/index.html">
+    <img src="/icons/FreeTime_Feed_brown_desktop.svg" class="logoDesktop" alt="FreeTime Feed desktop logo">
+   </a>
   </div>
 
-  <nav class="navLinks">
-    <a href="/index.html">Home</a>
-    <a href="/posts.html">Latest Posts</a>
-    <a href="/about.html">About</a>
-    <a href="/contact.html">Contact</a>
+  <nav class="navLinks publicNav">
+   <a href="/index.html">Home</a>
+   <a href="/posts.html">Latest Posts</a>
+   <a href="/account/register.html">About</a>
+   <a href="/contact.html">Contact</a>
+  </nav>
+
+  <nav class="navLinks adminNav hidden">
+   <a href="/index.html">Dashboard</a>
+   <a href="/blog/post/create.html">Create Post</a>
+   <a href="/blog/post/edit.html">Edit Post</a>
   </nav>
 
   <div class="headerIcons">
-      <img class="searchIconHeader"src="/icons/searchIconHeader.svg" alt="Search icon">
-      <img class="adminDeskHeader" src="/icons/adminIconHeader.png" alt="Sign in logo">
- <button id="hamburger" class="hamburgerBtn">
 
-  <img src="/icons/hamburgerIconGreen.svg" class="iconOpen">
-        <img src="/icons/closeIconGreen.svg" class="iconClose">
-      </button>
-    </div>
-</header>
+   <img class="searchIconHeader" src="/icons/searchIconHeader.svg" alt="Search icon">
 
+   <a id="loginIcon" href="/account/login.html">
+    <img src="/icons/adminIconHeader.png" alt="Sign in">
+   </a>
 
-  <!---------- MOBILE MENU ------------>
+   <a id="logoutIcon" class="hidden">
+    <img src="/icons/signout_green.svg" alt="Sign out">
+   </a>
 
-  <div class="mobileMenu">
-    <div class="menuViewer">
-
-      <a href="/" class="menuItem">
-      <img src="/icons/homeIcon.png" alt="House icon">
-      <span>Home</span>
-      </a>
-
-      <a href="#" class="menuItem">
-      <img src="/icons/chatIcon.png" alt="Chat icon">
-      <span>Latest Posts</span>
-      </a>
-
-      <a href="#" class="menuItem">
-      <img src="/icons/aboutIcon.png" alt="Info icon">
-      <span>About</span>
-      </a>
-
-      <a href="#" class="menuItem">
-      <img src="/icons/emailIcon.png" alt="Contact icon">
-      <span>Contact</span>
-      </a>
-
-    </div>
-
-    <div class="menuAdmin hidden">
-     <a href="/account/login.html" class="menuItem">
-      <img src="/icons/adminIcon.png" alt="Login icon">
-      <span>Admin login</span>
-      </a>
-
-     <!-- TOGGLE OFF ATM.
-     
-     <a href="#" class="menuItem">
-      <img src="/icons/dashboardIcon.png" alt="Dashboard icon">
-      <span>Dashboard</span>
-      </a>
-
-      <a href="#" class="menuItem">
-      <img src="/icons/createPost.png" alt="Create post icon">
-      <span>Create Post</span>
-      </a>
-    
-      <a href="#" class="menuItem">
-      <img src="/icons/signOut.png" alt="Sign out icon">
-      <span>Sign out</span>
-      </a> -->
-    </div>
+   <button id="hamburger" class="hamburgerBtn">
+    <img src="/icons/hamburgerIconGreen.svg" class="iconOpen">
+    <img src="/icons/closeIconGreen.svg" class="iconClose">
+   </button>
 
   </div>
+ </div>
+</header>
 
+<div class="mobileMenu">
 
+ <div class="menuViewer">
 
-    `;
+  <a href="/" class="menuItem">
+   <img src="/icons/homeIcon.png">
+   <span>Home</span>
+  </a>
+
+  <a href="/posts.html" class="menuItem">
+   <img src="/icons/chatIcon.png">
+   <span>Latest Posts</span>
+  </a>
+
+  <a href="/account/register.html" class="menuItem">
+   <img src="/icons/aboutIcon.png">
+   <span>About</span>
+  </a>
+
+  <a href="/contact.html" class="menuItem">
+   <img src="/icons/emailIcon.png">
+   <span>Contact</span>
+  </a>
+
+ </div>
+
+ <div id="menuAdmin" class="hidden">
+
+  <a href="/index.html" class="menuItem">
+   <img src="/icons/dashboardIcon.png">
+   <span>Dashboard</span>
+  </a>
+
+  <a href="/blog/post/create.html" class="menuItem">
+   <img src="/icons/createPost.png">
+   <span>Create Post</span>
+  </a>
+
+  <a id="logoutBtn" class="menuItem">
+   <img src="/icons/signOut.png">
+   <span>Sign out</span>
+  </a>
+
+ </div>
+
+</div>
+`;
 
   this.init();
  }
 
  init() {
-  // const DEV_SIDEBAR_OPEN = true;
   const hamburger = this.querySelector("#hamburger");
   const mobileMenu = this.querySelector(".mobileMenu");
-  const adminMenu = this.querySelector(".menuAdmin");
+
+  const publicNav = this.querySelector(".publicNav");
+  const adminNav = this.querySelector(".adminNav");
+
+  const loginIcon = this.querySelector("#loginIcon");
+  const logoutIcon = this.querySelector("#logoutIcon");
+
+  const adminMenu = this.querySelector("#menuAdmin");
   const logoutBtn = this.querySelector("#logoutBtn");
 
-  const token = localStorage.getItem("token");
+  // Render auth UI
+  this.renderAuthState(publicNav, adminNav, loginIcon, logoutIcon, adminMenu);
 
-  // auth UI
-  if (token) {
-   adminMenu.classList.remove("hidden");
-  }
-
-  // // DEV MODE
-  // if (DEV_SIDEBAR_OPEN) {
-  //  mobileMenu.classList.add("open");
-  //  hamburger.classList.add("active");
-  // }
-
-  // hamburger
+  // Mobile toggle
   hamburger.addEventListener("click", () => {
    mobileMenu.classList.toggle("open");
    hamburger.classList.toggle("active");
   });
 
-  // logout
-  if (logoutBtn) {
-   logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("token");
-    window.location.href = "/";
-   });
+  // Logout (desktop + mobile)
+  logoutIcon?.addEventListener("click", this.handleLogout);
+  logoutBtn?.addEventListener("click", this.handleLogout);
+ }
+
+ renderAuthState(publicNav, adminNav, loginIcon, logoutIcon, adminMenu) {
+  // DEFAULT PUBLIC STATE
+
+  publicNav.classList.remove("hidden");
+  adminNav.classList.add("hidden");
+
+  loginIcon.classList.remove("hidden");
+  logoutIcon.classList.add("hidden");
+
+  adminMenu.classList.add("hidden");
+
+  // ADMIN STATE
+
+  if (isLoggedIn() && isAdmin()) {
+   publicNav.classList.add("hidden");
+   adminNav.classList.remove("hidden");
+
+   loginIcon.classList.add("hidden");
+   logoutIcon.classList.remove("hidden");
+
+   adminMenu.classList.remove("hidden");
   }
+ }
+
+ handleLogout() {
+  logout();
+  window.location.href = "/";
  }
 }
 

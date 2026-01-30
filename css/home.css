@@ -21,6 +21,13 @@
  object-position: 50% 30%;
 }
 
+.geocaching img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ object-position: 80% 60%;
+}
+
 .cardOverlay {
  position: absolute;
  inset: 0;
@@ -32,20 +39,29 @@
 
 .cardOverlay h1 {
  text-align: center;
- max-width: 70%;
+ max-width: 80%;
+ font-size: 32px;
  line-height: 1.2;
 }
 
-.imageBadge {
+#imageBadge {
+ display: flex;
+ align-items: center;
+ justify-content: center;
  position: absolute;
- bottom: 24px;
+ bottom: 12px;
  left: 16px;
  background: #d6b3c5;
- color: var(--p-font-color);
+ color: var(--main-bg-color);
  font-size: var(--p-size);
  font-family: var(--p-font);
- padding: var(--padding-8px) var(--padding-32px);
- border-radius: 38px;
+ font-weight: 600;
+ line-height: 1;
+ white-space: nowrap;
+ padding: 14px var(--padding-32px);
+ border-radius: 14px;
+ cursor: pointer;
+ border: none;
 }
 
 .navBtn {
@@ -56,7 +72,7 @@
  height: 50px;
  border-radius: 50%;
  border: none;
- background: #8ff0b5;
+ background: var(--primary-color);
  display: grid;
  place-items: center;
  cursor: pointer;
@@ -69,11 +85,11 @@
 }
 
 .navBtn.left {
- left: 12px;
+ left: 8px;
 }
 
 .navBtn.right {
- right: 12px;
+ right: 8px;
 }
 
 .cardText {
@@ -91,12 +107,13 @@
 .minRead p {
  gap: 8px;
  font-size: var(--p-size);
- color: #666;
+ color: var(--main-bg-color);
+ margin-top: 6px;
 }
 
 .textInfoBottom {
  color: var(--p-color-black);
- padding: var(--padding-24px);
+ padding: var(--padding-16px);
 }
 
 .cardPageDots {
@@ -108,14 +125,112 @@
 
 .dot {
  display: inline-block;
- width: 10px;
- height: 10px;
+ width: 12px;
+ height: 12px;
  border-radius: 50%;
  background: #9f9f9f;
 }
 
 .dot.active {
-    width: 24px;
-    border-radius: 6px;
-    background: var(--primary-color);
+ width: 32px;
+ border-radius: 6px;
+ background: var(--primary-color);
+}
+
+/***** CAROUSEL ******/
+
+.carousel {
+ overflow: hidden;
+ width: 100%;
+}
+
+.carouselContent {
+ display: flex;
+ transition: transform 0.4s ease;
+}
+
+.cardWrapper {
+ min-width: 100%;
+}
+
+/***** CARD GRID ******/
+.gridWrapper {
+ max-width: 360px;
+ border-radius: 18px;
+ overflow: visible;
+ background: var(--header-color);
+ box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+ margin: var(--padding-24px) auto;
+}
+
+.cardGrid {
+ display: grid;
+ grid-template-columns: 1fr;
+}
+
+.cardGridH2 {
+ color: var(--h2-color-black);
+ font-family: var(--h2-font);
+ font-size: var(--h2-size);
+ font-weight: 700;
+ text-align: center;
+ margin-top: var(--padding-16px);
+}
+
+@media (min-width: 768px) {
+ .cardWrapper {
+  max-width: 676px;
+ }
+ .navBtn {
+  top: 65%;
+  width: 70px;
+  height: 70px;
+ }
+ .navBtn img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  place-items: center;
+ }
+ .imageBadge {
+  line-height: 1.5;
+  bottom: 32px;
+  left: 24px;
+  font-size: var(--h3-size);
+  padding: var(--padding-16px) var(--padding-48px);
+ }
+ .minRead p {
+  gap: 8px;
+  font-size: var(--p-size-desktop);
+  color: #666;
+  margin-top: 6px;
+ }
+ .textInfoBottom {
+  padding: var(--padding-32px);
+  font-size: var(--p-size-desktop);
+ }
+ .cardOverlay h1 {
+  font-size: 48px;
+  max-width: 60%;
+ }
+ .dot {
+  width: 16px;
+  height: 16px;
+ }
+
+ .dot.active {
+  width: 40px;
+  border-radius: 14px;
+ }
+ .mainGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: var(--padding-72px) ;
+ }
+ .gridWrapper {
+  max-width: 300px;
+  height: auto;
+ }
 }

@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registration</title>
+  <title>FreeTime Feed | Registration</title>
   <style>
    @import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Mada:wght@200..900&display=swap");
   </style>
@@ -11,10 +11,9 @@
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/footer.css" />
   <link rel="stylesheet" href="/css/header.css" />
-  <script src="/js/api.js" defer></script>
-  <script src="/js/register.js" defer></script>
-  <script src="/js/footer.js" defer></script>
-  <script src="/js/header.js" defer></script>
+  <script type="module" src="/js/register.js"></script>
+  <script type="module" src="/js/footer.js"></script>
+  <script type="module" src="/js/header.js"></script>
  </head>
  <body>
   <page-header></page-header>
@@ -25,38 +24,38 @@
    <h2 class="h2-register">Let's sign up and start posting.</h2>
 
    <div class="formWrapper">
-    <form class="registerForm" novalidate id="form">
-     <label>Name</label>
+    <form id="registerForm" novalidate id="validateForm">
+     <label for="nameInput">Name</label>
      <input
       id="nameInput"
       type="text"
-      placeholder="Full name"
+      placeholder="my_username"
       required
       data-required />
 
-     <label>Email</label>
+     <label for="emailInput">Email</label>
      <input
       id="emailInput"
       type="email"
-      placeholder="email@freetimefeed.com"
+      placeholder="name.lastname@stud.noroff.no"
       required
       data-required />
 
-     <label>
-      Password
-      <input
-       id="passwordInput"
-       type="password"
-       placeholder="******"
-       required
-       data-required />
-     </label>
+     <label for="passwordInput">Password</label>
+     <input
+      id="passwordInput"
+      type="password"
+      placeholder="******"
+      required
+      data-required />
 
-     <p class="pLoginText">
-      Already have an account? <a href="login.html">Login</a>
-     </p>
-     <div id="inputError"></div>
-     <button type="submit" class="btn register-btn">Register</button>
+     <div class="resetText">
+      <p class="pLoginText">
+       Already have an account?<a href="login.html">Login</a>
+      </p>
+      <p id="errorText"></p>
+      <button type="submit" class="btn register-btn">Register</button>
+     </div>
     </form>
    </div>
   </main>

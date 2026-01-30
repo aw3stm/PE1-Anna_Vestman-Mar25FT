@@ -5,27 +5,32 @@
 
 .h1-register,
 .h2-register {
- margin-top: var(--padding-32px);
+ margin-top: var(--padding-24px);
  text-align: center;
 }
 
 .mainWrapper {
+ width: 100%;
  max-width: 768px;
  margin: 0 auto;
  padding: 0 var(--padding-24px);
 }
 
 .formWrapper {
+ width: 100%;
  max-width: 420px;
  margin: 0 auto;
  padding: var(--padding-24px);
 }
 
-.registerForm {
+#registerForm {
  width: 100%;
+ display: flex;
+ flex-direction: column;
+ gap: var(--padding-16px);
 }
 
-.registerForm input {
+#registerForm input {
  width: 100%;
  background: transparent;
  border: none;
@@ -36,7 +41,7 @@
  outline: none;
 }
 
-.registerForm label {
+#registerForm label {
  font-family: var(--h3-font);
  color: var(--main-text-color);
  font-size: var(--h3-size);
@@ -48,10 +53,10 @@
  justify-self: right;
  font-size: var(--small-text-size);
  color: white;
- margin: 16px 0 32px;
 }
 
-.pLoginText a {
+.resetText a {
+ font-size: var(--p-size);
  color: var(--styling-color);
  text-decoration: none;
  font-weight: 500;
@@ -63,43 +68,25 @@
  display: flex;
  justify-content: center;
  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
- .formWrapper {
-  max-width: 600px;
-  margin: 0 auto;
- }
- .registerForm input {
-  font-size: var(--h3-size-desktop);
-  padding: var(--padding-32px) 0;
- }
- .h1-register {
-  font-size: var(--h1-size-desktop);
-  padding: var(--padding-16px);
- }
- .h2-register {
-  font-size: var(--h2-size-desktop);
- }
- .registerForm label {
-  font-size: var(--h3-size-desktop);
- }
-
- .register-btn {
-  max-width: 250px;
- }
+ margin-top: 24px;
 }
 
 /********* LOG IN ********/
-.loginForm {
+
+.h1-login {
+ text-align: center;
+ margin: var(--padding-32px) 0 0 0;
+}
+
+#loginForm {
  width: 100%;
  display: flex;
  flex-direction: column;
  gap: var(--padding-32px);
- margin-top: var(--padding-40px);
 }
 
 .inputGroup {
+ width: 100%;
  display: flex;
  height: 56px;
  align-items: center;
@@ -121,7 +108,7 @@
 
 .inputIcon img {
  width: auto;
- height: 20px;
+ height: 23px;
 }
 
 .inputGroup input {
@@ -139,9 +126,39 @@
  color: var(--main-text-color);
 }
 
-
 @media (min-width: 768px) {
- .loginForm {
+ .formWrapper {
+  max-width: 600px;
+  margin: 0 auto;
+ }
+ #registerForm input {
+  font-size: var(--h3-size-desktop);
+  padding: var(--padding-16px) 0;
+ }
+ .h1-register,
+ .h1-login {
+  font-size: var(--h1-size-desktop);
+  padding: var(--padding-16px);
+ }
+ .h2-register {
+  font-size: var(--h2-size-desktop);
+ }
+ #registerForm label {
+  font-size: var(--h3-size-desktop);
+ }
+ .pLoginText {
+  font-size: var(--font-size-desktop-20px);
+  justify-self: right;
+  margin-top: 0;
+ }
+ .resetText a {
+  font-size: var(--font-size-desktop-20px);
+ }
+ .register-btn {
+  max-width: 250px;
+ }
+
+ #loginForm {
   display: flex;
   font-size: var(--h3-size-desktop);
   padding: var(--padding-32px) 0;
@@ -150,16 +167,12 @@
   margin-top: var(--padding-40px);
   margin: 0 auto;
  }
-
  .inputGroup {
   max-width: 900px;
  }
- .pLoginText {
+ .resetText.registerTextBottom {
   font-size: var(--font-size-desktop-20px);
-  justify-self: right;
-  margin-top: 0;
- }
- .register-btn {
-  max-width: 250px;
+  justify-self: center;
+  margin-top: 16px;
  }
 }

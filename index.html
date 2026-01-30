@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FreeTime Feed</title>
+  <title>FreeTime Feed | Home</title>
   <style>
    @import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Mada:wght@200..900&display=swap");
   </style>
@@ -12,51 +12,36 @@
   <link rel="stylesheet" href="./css/home.css" />
   <link rel="stylesheet" href="/css/footer.css" />
   <link rel="stylesheet" href="/css/header.css" />
-  <script src="./js/api.js" defer></script>
-  <script src="/js/footer.js" defer></script>
-  <script src="/js/header.js" defer></script>
  </head>
  <body>
   <page-header></page-header>
   <main class="mainWrapper">
-   <article class="cardWrapper">
-    <div class="cardContent">
-     <img
-      src="/images/Robotic.jpg"
-      alt="A teenage girl and boy building a robot together" />
-
-     <div class="cardOverlay">
-      <h1>Code. Build. Compete. Win</h1>
-      <span class="imageBadge">Robotic</span>
-      <button class="navBtn left">
-       <img src="/icons/chevronLeft.svg" alt="chevron left" />
-      </button>
-      <button class="navBtn right">
-       <img src="/icons/chevronRight.svg" alt="chevron right" />
-      </button>
-     </div>
+   <div class="carousel">
+    <div class="carouselContent" id="carouselItems"></div>
+ 
+    <div class="cardPageDots">
+     <span class="dot"></span>
+     <span class="dot active"></span>
+     <span class="dot"></span>
     </div>
+   </div>
 
-    <div class="cardText">
-     <div class="minRead">
-      <img src="/icons/clockReadingMin.svg" alt="Clock icon" />
-      <p>5 minutes read</p>
-     </div>
+   <!------- CARD GRID -------->
 
-     <p class="textInfoBottom">
-      Frank, a 17 year old boy who refuse to choose.In chess boxing, he plans
-      his next move one round and throws punches the next. It's fast, intense,
-      and never boring. Checkmate or knockout, Frank plays for both.
-     </p>
-    
-     <div class="cardPageDots">
-        <span class="dot"></span>
-        <span class="dot active"></span>
-        <span class="dot"></span>
-     </div>
-     </div>
-   </article>
+   <div class="mainGrid" id="gridContainer"></div>
+
+   <article class="gridWrapper"></article>
+
   </main>
   <page-footer><p></p></page-footer>
+  <script type="module" src="/js/config.js"></script>
+  <script type="module" src="/js/client.js"></script>
+  <script type="module" src="/js/posts.js"></script>
+  <script type="module" src="/js/carousel.js"></script>
+  <script type="module" src="/js/feed.js"></script>
+  <script type="module" src="/js/header.js"></script>
+  <script type="module" src="/js/footer.js"></script>
  </body>
 </html>
+
+

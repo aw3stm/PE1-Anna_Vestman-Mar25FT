@@ -15,7 +15,7 @@
  gap: var(--padding-16px);
 }
 
-.adminDeskHeader {
+#adminDeskHeader {
  display: none;
 }
 .logoMobile img {
@@ -26,6 +26,7 @@
 }
 .logoMobile {
  width: 40px;
+ cursor: pointer;
 }
 .navLinks {
  display: none;
@@ -54,7 +55,7 @@
  transform: translateX(4px);
 }
 
-.menuAdmin {
+#menuAdmin {
  margin-top: var(--padding-72px);
  padding-top: 16px;
  border-top: 2px solid var(--styling-color);
@@ -90,7 +91,7 @@
  justify-self: end;
  display: flex;
  align-items: center;
- gap: var(--padding-24px);
+ gap: var(--padding-8px);
 }
 
 .hamburgerBtn {
@@ -115,6 +116,7 @@
 .searchIconHeader {
  width: 32px;
  height: auto;
+ cursor: pointer;
 }
 
 .iconOpen,
@@ -143,15 +145,18 @@
 
  .logo {
   margin-left: 32px;
+  cursor: pointer;
  }
 
  .headerIcons {
   margin-right: 32px;
+  gap: var(--padding-24px);
  }
- .adminDeskHeader {
+ #adminDeskHeader {
   display: block;
   width: 40px;
   height: auto;
+  cursor: pointer;
  }
 
  #hamburger {
