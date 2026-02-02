@@ -1,0 +1,82 @@
+.dashboardWrapper {
+ width: 100%;
+ max-width: 1440px;
+ margin: 24px auto;
+ padding: var(--padding-24px) var(--padding-16px);
+ border: 1px solid white;
+}
+
+.admin-h1 {
+ text-align: center;
+ margin: var(--padding-24px) 0;
+}
+
+#blogList {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 20px;
+}
+
+.dashboardPost {
+ display: flex;
+ flex-direction: column;
+ background-color: #fff;
+ padding: var(--padding-12px);
+ border-radius: 8px;
+ margin-bottom: 24px;
+ transition:
+  transform 0.2s ease,
+  box-shadow 0.2s ease;
+}
+.dashboardPost:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.dashboardPost img {
+ width: 100%;
+ height: 160px;
+ object-fit: cover;
+ border-radius: 6px;
+}
+.postMeta {
+ display: flex;
+ justify-content: space-between;
+ margin: 12px auto;
+ font-family: var(--small-text-font);
+ font-size: var(--small-text-size);
+ color: var(--main-bg-color);
+}
+
+.deleteBtn,
+.editBtn {
+ width: 50%;
+ margin: 0 auto;
+ margin-top: 8px;
+ padding: var(--padding-8px);
+}
+
+.authorDashboard {
+ color: var(--main-bg-color);
+ text-align: center;
+}
+
+p.textInfoBottom {
+ width: 60%;
+ display: -webkit-box;
+ -webkit-line-clamp: 2;
+ -webkit-box-orient: vertical;
+ overflow: hidden;
+ color: var(--p-color-black);
+ margin: 12px auto;
+ flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+ #blogList {
+  grid-template-columns: 1fr;
+ }
+ .dashboardWrapper {
+  max-width: 420px;
+ }
+}

@@ -5,6 +5,14 @@
  background: var(--header-color);
  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
  margin: var(--padding-24px) auto;
+ transition:
+  transform 0.2s ease,
+  box-shadow 0.2s ease;
+}
+
+.cardWrapper:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .cardContent {
@@ -49,7 +57,7 @@
  align-items: center;
  justify-content: center;
  position: absolute;
- bottom: 12px;
+ bottom: 16px;
  left: 16px;
  background: #d6b3c5;
  color: var(--main-bg-color);
@@ -59,7 +67,7 @@
  line-height: 1;
  white-space: nowrap;
  padding: 14px var(--padding-32px);
- border-radius: 14px;
+ border-radius: 28px;
  cursor: pointer;
  border: none;
 }
@@ -87,7 +95,6 @@
 .navBtn.left {
  left: 8px;
 }
-
 .navBtn.right {
  right: 8px;
 }
@@ -103,12 +110,20 @@
  gap: 8px;
  margin-bottom: 8px;
 }
-
 .minRead p {
  gap: 8px;
  font-size: var(--p-size);
  color: var(--main-bg-color);
  margin-top: 6px;
+}
+
+.postMeta {
+ max-width: 393px;
+ display: flex;
+ justify-content: space-between;
+ margin: 6px 0;
+ font-family: var(--small-text-font);
+ color: var(--main-bg-color);
 }
 
 .textInfoBottom {
@@ -192,9 +207,9 @@
   object-fit: contain;
   place-items: center;
  }
- .imageBadge {
+ #imageBadge {
   line-height: 1.5;
-  bottom: 32px;
+  bottom: 40px;
   left: 24px;
   font-size: var(--h3-size);
   padding: var(--padding-16px) var(--padding-48px);
@@ -208,6 +223,7 @@
  .textInfoBottom {
   padding: var(--padding-32px);
   font-size: var(--p-size-desktop);
+  padding: var(--padding-48px);
  }
  .cardOverlay h1 {
   font-size: 48px;
@@ -227,10 +243,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
-  margin-top: var(--padding-72px) ;
+  margin-top: var(--padding-72px);
  }
  .gridWrapper {
   max-width: 300px;
   height: auto;
+ }
+ .postMeta {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px auto;
+  font-family: var(--small-text-font);
+  color: var(--main-bg-color);
  }
 }

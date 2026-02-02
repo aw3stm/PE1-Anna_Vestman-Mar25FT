@@ -16,6 +16,13 @@ export function createPost(data) {
  });
 }
 
+export function updatePost(id, data) {
+ return apiRequest(`/blog/posts/${CONFIG.BLOG_NAME}/${id}`, {
+  method: "PUT",
+  body: JSON.stringify(data),
+ });
+}
+
 export function deletePost(id) {
  return apiRequest(`/blog/posts/${CONFIG.BLOG_NAME}/${id}`, {
   method: "DELETE",

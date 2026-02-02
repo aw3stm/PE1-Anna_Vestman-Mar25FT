@@ -3,11 +3,14 @@ import { isAdmin, isLoggedIn } from "./auth.js";
 
 // ROUTE GUARD
 if (!isLoggedIn() || !isAdmin()) {
- window.location.href = "/account/login.html";
- return;
+ window.location.replace("/account/login.html");
 }
 
 const form = document.getElementById("createPostForm");
+
+if (!form) {
+ throw new Error("Create form not found");
+}
 
 form.addEventListener("submit", async (e) => {
  e.preventDefault();

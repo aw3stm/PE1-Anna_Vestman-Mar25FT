@@ -91,7 +91,14 @@
  justify-self: end;
  display: flex;
  align-items: center;
- gap: var(--padding-8px);
+ justify-content: center;
+ gap: var(--padding-12px);
+}
+
+#loginIcon img {
+ width: 44px;
+ height: auto;
+ cursor: pointer;
 }
 
 .hamburgerBtn {
@@ -111,12 +118,6 @@
  width: 28px;
  height: auto;
  position: absolute;
-}
-
-.searchIconHeader {
- width: 32px;
- height: auto;
- cursor: pointer;
 }
 
 .iconOpen,

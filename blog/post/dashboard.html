@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FreeTime Feed | Create New Post</title>
+  <title>FreeTime Feed | Admin Dashboard</title>
   <style>
    @import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Mada:wght@200..900&display=swap");
   </style>
@@ -11,37 +11,24 @@
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/footer.css" />
   <link rel="stylesheet" href="/css/header.css" />
-  <link rel="stylesheet" href="/css/createpost.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
  </head>
  <body>
   <page-header></page-header>
-  <main class="mainWrapper">
-   <h1 class="h1-login">New blog post</h1>
-   <div class="formWrapper">
-    <form id="createPostForm">
-     <label for="titleInput">Title</label>
-     <input type="text" id="titleInput" required />
+  <main class="dashboardWrapper">
+   <div class="adminDashboard">
+    <h1 class="admin-h1">Admin Dashboard</h1>
 
-     <label for="authorInput">Author</label>
-     <input type="text" id="authorInput" required />
-
-     <label for="contentInput">Content</label>
-     <textarea name="contentInput" id="contentInput"></textarea>
-
-     <label for="contentInput">Image URL</label>
-     <input type="text" id="imageInput" />
-     <label for="contentInput">Alt text</label>
-     <input type="text" name="altInput" id="altInput" />
-
-     <button type="submit" class="btn publishBtn">Publish</button>
-    </form>
+    <div id="blogList"></div>
    </div>
   </main>
   <page-footer><p></p></page-footer>
   <script type="module" src="/js/header.js"></script>
   <script type="module" src="/js/footer.js"></script>
+  <script type="module" src="/js/dashboard.js"></script>
   <script type="module" src="/js/config.js"></script>
   <script type="module" src="/js/client.js"></script>
-  <script type="module" src="/js/create.js"></script>
+  <script type="module" src="/js/posts.js"></script>
+  <script type="module" src="/js/feed.js"></script>
  </body>
 </html>

@@ -25,14 +25,12 @@ class PageHeader extends HTMLElement {
   </nav>
 
   <nav class="navLinks adminNav hidden">
-   <a href="/index.html">Dashboard</a>
+   <a href="/blog/post/dashboard.html">Dashboard</a>
    <a href="/blog/post/create.html">Create Post</a>
    <a href="/blog/post/edit.html">Edit Post</a>
   </nav>
 
   <div class="headerIcons">
-
-   <img class="searchIconHeader" src="/icons/searchIconHeader.svg" alt="Search icon">
 
    <a id="loginIcon" href="/account/login.html">
     <img src="/icons/adminIconHeader.png" alt="Sign in">
@@ -79,7 +77,7 @@ class PageHeader extends HTMLElement {
 
  <div id="menuAdmin" class="hidden">
 
-  <a href="/index.html" class="menuItem">
+  <a href="/blog/post/dashboard.html" class="menuItem">
    <img src="/icons/dashboardIcon.png">
    <span>Dashboard</span>
   </a>
@@ -98,7 +96,6 @@ class PageHeader extends HTMLElement {
 
 </div>
 `;
-
   this.init();
  }
 
