@@ -1,102 +1,98 @@
-.cardWrapper {
- max-width: 360px;
- border-radius: 18px;
- overflow: visible;
- background: var(--header-color);
- box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
- margin: var(--padding-24px) auto;
- transition:
-  transform 0.2s ease,
-  box-shadow 0.2s ease;
+/***** CAROUSEL ******/
+
+.carousel {
+ overflow: hidden;
+ width: 100%;
+ margin-bottom: 24px;
+}
+.carouselContent {
+ display: flex;
 }
 
-.cardWrapper:hover {
- transform: translateY(-3px);
- box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+.cardWrapper {
+ min-width: 100%;
+ background: var(--header-color);
+ border-radius: 18px;
+ border: 1px solid rgba(255, 255, 255, 0.08);
+ overflow: hidden;
+ margin: var(--padding-24px) auto;
 }
 
 .cardContent {
- overflow: hidden;
- border-radius: 18px 18px 0 0;
  position: relative;
- aspect-ratio: 4 / 3;
+ aspect-ratio: 16 / 9;
+ border-radius: 18px;
+ overflow: hidden;
 }
 
 .cardContent img {
  width: 100%;
  height: 100%;
  object-fit: cover;
- object-position: 50% 30%;
-}
-
-.geocaching img {
- width: 100%;
- height: 100%;
- object-fit: cover;
- object-position: 80% 60%;
+ object-position: 60% 40%;
 }
 
 .cardOverlay {
  position: absolute;
  inset: 0;
- display: grid;
- place-items: center;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
  padding: 16px;
- background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15));
+ background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.25));
 }
 
 .cardOverlay h1 {
  text-align: center;
- max-width: 80%;
+ max-width: 85%;
  font-size: 32px;
  line-height: 1.2;
-}
-
-#imageBadge {
- display: flex;
- align-items: center;
- justify-content: center;
- position: absolute;
- bottom: 16px;
- left: 16px;
- background: #d6b3c5;
- color: var(--main-bg-color);
- font-size: var(--p-size);
- font-family: var(--p-font);
- font-weight: 600;
- line-height: 1;
- white-space: nowrap;
- padding: 14px var(--padding-32px);
- border-radius: 28px;
- cursor: pointer;
- border: none;
 }
 
 .navBtn {
  position: absolute;
  top: 50%;
  transform: translateY(-50%);
- width: 50px;
- height: 50px;
- border-radius: 50%;
+ width: 48px;
+ height: 64px;
  border: none;
- background: var(--primary-color);
+ background: rgba(0, 0, 0, 0.35);
  display: grid;
  place-items: center;
  cursor: pointer;
+ border-radius: 8px;
+ transition:
+  background 0.2s ease,
+  transform 0.2s ease;
+}
+
+.navBtn:hover {
+ background: rgba(0, 0, 0, 0.55);
+ transform: translateY(-50%) scale(1.05);
 }
 
 .navBtn img {
- width: 18px;
+ width: 10px;
  height: 18px;
- object-fit: contain;
+ filter: invert(1);
+ opacity: 0.85;
+ color: var(--primary-color);
 }
 
 .navBtn.left {
- left: 8px;
+ left: 12px;
 }
+
 .navBtn.right {
- right: 8px;
+ right: 12px;
+}
+
+.navBtn {
+ transition:
+  opacity 0.2s ease,
+  background 0.2s ease,
+  transform 0.2s ease;
 }
 
 .cardText {
@@ -111,19 +107,9 @@
  margin-bottom: 8px;
 }
 .minRead p {
- gap: 8px;
  font-size: var(--p-size);
  color: var(--main-bg-color);
  margin-top: 6px;
-}
-
-.postMeta {
- max-width: 393px;
- display: flex;
- justify-content: space-between;
- margin: 6px 0;
- font-family: var(--small-text-font);
- color: var(--main-bg-color);
 }
 
 .textInfoBottom {
@@ -135,85 +121,112 @@
  display: flex;
  justify-content: center;
  gap: 8px;
- padding: 12px 0 16px;
+ padding: 12px 0;
 }
 
 .dot {
- display: inline-block;
- width: 12px;
- height: 12px;
+ width: 10px;
+ height: 10px;
  border-radius: 50%;
  background: #9f9f9f;
 }
 
 .dot.active {
- width: 32px;
- border-radius: 6px;
+ width: 28px;
+ border-radius: 8px;
  background: var(--primary-color);
 }
 
-/***** CAROUSEL ******/
-
-.carousel {
- overflow: hidden;
- width: 100%;
-}
-
-.carouselContent {
+.postMeta {
  display: flex;
- transition: transform 0.4s ease;
-}
-
-.cardWrapper {
- min-width: 100%;
+ justify-content: space-between;
+ font-family: var(--small-text-font);
+ color: var(--main-bg-color);
+ margin: 12px;
 }
 
 /***** CARD GRID ******/
-.gridWrapper {
- max-width: 360px;
- border-radius: 18px;
- overflow: visible;
- background: var(--header-color);
- box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
- margin: var(--padding-24px) auto;
-}
-
-.cardGrid {
+.mainGrid {
  display: grid;
  grid-template-columns: 1fr;
+ gap: 16px;
 }
 
+.gridWrapper {
+ background: var(--header-color);
+ border-radius: 16px;
+ border: 1px solid rgba(255, 255, 255, 0.08);
+ overflow: hidden;
+ transition:
+  transform 0.2s ease,
+  box-shadow 0.2s ease;
+  margin: 24px 0;
+}
+
+.gridWrapper:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+.gridText {
+ padding: 12px;
+}
 .cardGridH2 {
  color: var(--h2-color-black);
- font-family: var(--h2-font);
- font-size: var(--h2-size);
  font-weight: 700;
  text-align: center;
- margin-top: var(--padding-16px);
+ margin-bottom: 6px;
+}
+
+.textInfoBottom {
+ line-height: 1.5;
+ display: -webkit-box;
+ -webkit-line-clamp: 2;
+ -webkit-box-orient: vertical;
+ overflow: hidden;
+}
+
+.clickablePost {
+ cursor: pointer;
 }
 
 @media (min-width: 768px) {
- .cardWrapper {
-  max-width: 676px;
+ .mainWrapper {
+  max-width: 1200px;
  }
+ .cardOverlay h1 {
+  font-size: 48px;
+  max-width: 60%;
+ }
+
+ .carouselBtn {
+  bottom: 40px;
+  left: 32px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.42);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  transition:
+   background 0.2s ease,
+   transform 0.2s ease,
+   box-shadow 0.2s ease;
+ }
+
+ .carouselBtn:hover {
+  background: rgba(0, 0, 0, 0.75);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+ }
+
  .navBtn {
-  top: 65%;
-  width: 70px;
-  height: 70px;
+  width: 64px;
+  height: 64px;
  }
  .navBtn img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-  place-items: center;
+  width: 14px;
+  height: 22px;
  }
- #imageBadge {
-  line-height: 1.5;
-  bottom: 40px;
-  left: 24px;
-  font-size: var(--h3-size);
-  padding: var(--padding-16px) var(--padding-48px);
- }
+
  .minRead p {
   gap: 8px;
   font-size: var(--p-size-desktop);
@@ -221,39 +234,18 @@
   margin-top: 6px;
  }
  .textInfoBottom {
-  padding: var(--padding-32px);
   font-size: var(--p-size-desktop);
-  padding: var(--padding-48px);
- }
- .cardOverlay h1 {
-  font-size: 48px;
-  max-width: 60%;
- }
- .dot {
-  width: 16px;
-  height: 16px;
  }
 
+ .dot {
+  width: 14px;
+  height: 14px;
+ }
  .dot.active {
   width: 40px;
-  border-radius: 14px;
  }
+
  .mainGrid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
-  margin-top: var(--padding-72px);
- }
- .gridWrapper {
-  max-width: 300px;
-  height: auto;
- }
- .postMeta {
-  display: flex;
-  justify-content: space-between;
-  margin: 6px auto;
-  font-family: var(--small-text-font);
-  color: var(--main-bg-color);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
  }
 }

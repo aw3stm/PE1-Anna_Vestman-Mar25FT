@@ -17,14 +17,15 @@ class PageHeader extends HTMLElement {
    </a>
   </div>
 
+  <div class="rightGroup">
   <nav class="navLinks publicNav">
    <a href="/index.html">Home</a>
-   <a href="/posts.html">Latest Posts</a>
-   <a href="/account/register.html">About</a>
-   <a href="/contact.html">Contact</a>
+   <a href="#">About</a>
+   <a href="#">Contact</a>
   </nav>
 
   <nav class="navLinks adminNav hidden">
+  <a href="/">Home</a>
    <a href="/blog/post/dashboard.html">Dashboard</a>
    <a href="/blog/post/create.html">Create Post</a>
    <a href="/blog/post/edit.html">Edit Post</a>
@@ -44,23 +45,17 @@ class PageHeader extends HTMLElement {
     <img src="/icons/hamburgerIconGreen.svg" class="iconOpen">
     <img src="/icons/closeIconGreen.svg" class="iconClose">
    </button>
-
+</div>
   </div>
  </div>
 </header>
 
 <div class="mobileMenu">
-
  <div class="menuViewer">
 
   <a href="/" class="menuItem">
    <img src="/icons/homeIcon.png">
    <span>Home</span>
-  </a>
-
-  <a href="/posts.html" class="menuItem">
-   <img src="/icons/chatIcon.png">
-   <span>Latest Posts</span>
   </a>
 
   <a href="/account/register.html" class="menuItem">

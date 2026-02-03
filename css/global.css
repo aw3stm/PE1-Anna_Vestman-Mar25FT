@@ -52,8 +52,8 @@
  --padding-72px: 72px;
 
  --header-height: 100px;
- /* Typography Mobile*/
 
+ /* Typography Mobile*/
  --h1-font: "libre-franklin", arial;
  --h1-size: 24px;
  --h1-size-desktop: 48px;
@@ -100,6 +100,18 @@ body {
 main {
  flex: 1;
 }
+.mainWrapper {
+ width: 100%;
+ margin: 0 auto;
+ padding: 0 var(--padding-16px);
+}
+
+.formWrapper {
+ width: 100%;
+ max-width: 420px;
+ margin: 0 auto;
+ padding: var(--padding-16px);
+}
 
 section {
  margin-top: var(--padding-32px);
@@ -115,7 +127,7 @@ section {
  padding: var(--padding-12px) var(--padding-16px);
  border: none;
  border-radius: 28px;
- font-family: "khula", Arial, Helvetica, sans-serif;
+ font-family: var(--p-font);
  font-size: var(--h3-size);
  font-weight: 600;
  color: var(--button-text-color);
@@ -169,6 +181,30 @@ section {
  background: transparent;
 }
 
+.carouselBtn {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: absolute;
+ bottom: 16px;
+ left: 16px;
+ background: #d6b3c5;
+ color: var(--button-text-color);
+ font-size: var(--p-size);
+ font-family: var(--p-font);
+ font-weight: 600;
+ line-height: 1.5;
+ white-space: nowrap;
+ padding: var(--padding-12px) var(--padding-32px);
+ border-radius: 999px;
+ cursor: pointer;
+ border: none;
+}
+
+.carouselBtn:hover {
+ transform: scale(1.05);
+}
+
 h1 {
  font-family: var(--h1-font);
  font-size: var(--h1-size);
@@ -205,7 +241,7 @@ li {
 
 a {
  text-decoration: none;
- color: var(--main-text-color);
+ color: var(--main-bg-color);
  cursor: pointer;
  font-family: var(--h3-font);
  font-size: var(--h3-size);

@@ -8,12 +8,10 @@
  margin-top: var(--padding-24px);
  text-align: center;
 }
-
 .mainWrapper {
  width: 100%;
  max-width: 768px;
  margin: 0 auto;
- padding: 0 var(--padding-24px);
 }
 
 .formWrapper {
@@ -22,6 +20,7 @@
  margin: 0 auto;
  padding: var(--padding-24px);
 }
+
 
 #registerForm {
  width: 100%;
@@ -75,7 +74,13 @@
 
 .h1-login {
  text-align: center;
- margin: var(--padding-32px) 0 0 0;
+ margin: var(--padding-24px) 0 0 0;
+}
+.loginWrapper {
+ width: 100%;
+ max-width: 420px;
+ margin: 64px auto;
+ padding: var(--padding-24px);
 }
 
 #loginForm {
@@ -112,7 +117,6 @@
 }
 
 .inputGroup input {
- flex: 1;
  width: 100%;
  background: transparent;
  border: none;

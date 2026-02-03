@@ -119,36 +119,35 @@
  height: auto;
  position: absolute;
 }
-
 .iconOpen,
 .iconClose {
  transition: opacity 0.2s ease;
 }
-
 .iconClose {
  opacity: 0;
 }
-
 .hamburgerBtn.active .iconOpen {
  opacity: 0;
 }
-
 .hamburgerBtn.active .iconClose {
  opacity: 1;
 }
-
 @media (min-width: 767px) {
  .innerHeader {
   display: flex;
   align-items: center;
-  justify-content: space-between;
  }
 
+ .rightGroup {
+  margin-left: auto;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+ }
  .logo {
   margin-left: 32px;
   cursor: pointer;
  }
-
  .headerIcons {
   margin-right: 32px;
   gap: var(--padding-24px);
@@ -163,30 +162,56 @@
  #hamburger {
   display: none;
  }
-
  .logoMobile {
   display: none;
  }
-
  .logoDesktop {
   display: block;
   height: 32px;
  }
-
  .logoDesktop img {
   width: 128px;
  }
-
+ .mobileMenu {
+  display: none;
+ }
+ .navLinks a {
+  
+ }
  .navLinks {
+    color: var(--main-bg-color);
   display: flex;
   gap: 32px;
   justify-self: center;
   margin: 0 auto;
+  position: relative;
+  text-decoration: none;
+  transition: transform 0.2s ease;
  }
- .navLinks a {
-  color: var(--main-bg-color);
+
+ .navLinks:hover {
+  transform: translateY(-2px);
  }
- .mobileMenu {
-  display: none;
+
+ .navLinks::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--styling-color);
+  transition: width 0.25s ease;
+ }
+
+ .navLinks:hover::after {
+  width: 100%;
+ }
+ .navLinks.active {
+  color: #a58e9a;
+ }
+
+ .navLinks.active::after {
+  width: 100%;
  }
 }

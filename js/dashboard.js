@@ -1,3 +1,4 @@
+import { formatDate } from "./utils.js";
 import { getPosts, deletePost } from "./posts.js";
 import { isAdmin, isLoggedIn } from "./auth.js";
 
@@ -15,17 +16,6 @@ async function loadDashboard() {
  } catch (error) {
   console.error(error.message);
  }
-}
-function formatDate(dateString) {
- const date = new Date(dateString);
-
- return date.toLocaleDateString("sv-SE", {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-  hour: "2-digit",
-  minute: "2-digit",
- });
 }
 
 function renderPosts(posts) {
@@ -50,9 +40,9 @@ function renderPosts(posts) {
   <span>Created: ${formatDate(post.created)}</span>
 
   ${
-   post.updated !== post.created
-    ? `<span>Updated: ${formatDate(post.updated)}</span>`
-    : ""
+   post.updated !== post.created ?
+    `<span>Updated: ${formatDate(post.updated)}</span>`
+   : ""
   }
  </div>
  <p class="authorDashboard">Author: ${post.author.name}</p>

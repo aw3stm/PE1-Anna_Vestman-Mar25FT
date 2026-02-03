@@ -1,0 +1,42 @@
+#singlePostContainer {
+ max-width: 680px;
+ margin: 24px auto;
+ padding: 16px;
+ display: flex;
+ flex-direction: column;
+ gap: 16px;
+ background: #fff;
+ border-radius: 12px;
+}
+
+#postTitle {
+ color: var(--h2-color-black);
+ text-align: center;
+}
+
+#postContent {
+ color: var(--p-color-black);
+ font-family: var(--p-font);
+ margin: 12px auto;
+ white-space: pre-line;
+}
+
+#postImage {
+ width: 100%;
+ height: auto;
+ border-radius: 12px;
+ object-fit: cover;
+}
+
+.divider {
+ height: 1px;
+ background: #eee;
+ margin: 8px 0;
+}
+
+.postMetaRow {
+ display: flex;
+ gap: 12px;
+ font-size: 0.8rem;
+ color: #777;
+}

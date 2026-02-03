@@ -1,7 +1,7 @@
 class pageFooter extends HTMLElement {
  connectedCallback() {
   this.innerHTML = `
-  <section>
+ 
     <footer class="footerWrapper">
     <div class="footerContent">
         <div class="footerTopText">
@@ -16,7 +16,6 @@ class pageFooter extends HTMLElement {
 
     <div class="footerLinks">
         <a href="/index.html">Home</a>
-        <a href="/index.html">Latest Posts</a>
         <a href="/index.html">About</a>
         <a href="/index.html">Contact</a>
         </div>
@@ -36,7 +35,7 @@ class pageFooter extends HTMLElement {
     </div>
     </div>
 </footer>
-</section>
+
     `;
  }
 }

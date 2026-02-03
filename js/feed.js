@@ -1,3 +1,4 @@
+import { formatDate } from "./utils.js";
 import { getPosts } from "./posts.js";
 import { initCarousel } from "./carousel.js";
 
@@ -9,18 +10,6 @@ async function loadFeed() {
   const result = await getPosts(15);
   renderFeed(result.data);
  } catch (error) {}
-}
-
-function formatDate(dateString) {
- const date = new Date(dateString);
-
- return date.toLocaleDateString("sv-SE", {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-  hour: "2-digit",
-  minute: "2-digit",
- });
 }
 
 function renderFeed(posts) {
@@ -40,16 +29,17 @@ function renderFeed(posts) {
      <div class="cardOverlay">
       <h1>${post.title}</h1>
 
-      <button id="imageBadge">
-       ${post.category || "Read Post"}
-      </button>
+    <button type="button" class="carouselBtn" 
+    data-id="${post.id}">
+    ${post.category || "Read Post"}
+    </button>
 
       <button class="navBtn left">
-       <img src="/icons/chevronLeft.svg" alt="">
+       <img src="/icons/chevronLeft.svg" alt="Chevron left">
       </button>
 
       <button class="navBtn right">
-       <img src="/icons/chevronRight.svg" alt="">
+       <img src="/icons/chevronRight.svg" alt="Chevron right">
       </button>
      </div>
     </div>
@@ -83,7 +73,7 @@ function renderFeed(posts) {
   const text = post.body?.slice(0, 120) || "";
 
   grid.innerHTML += `
-  <article class="gridWrapper">
+  <article class="gridWrapper clickablePost" data-id="${post.id}">
    <div class="cardContent gridContent">
     <img 
      src="${imageUrl}" 
@@ -105,6 +95,34 @@ function renderFeed(posts) {
  `;
  });
  initCarousel();
+ attachCarouselButtonClicks();
+ attachPostClicks();
+}
+
+function attachPostClicks() {
+ const posts = document.querySelectorAll(".clickablePost");
+
+ posts.forEach((post) => {
+  post.addEventListener("click", () => {
+   const id = post.dataset.id;
+
+   window.location.href = `/blog/post/index.html?id=${id}`;
+  });
+ });
+}
+
+function attachCarouselButtonClicks() {
+ const buttons = document.querySelectorAll(".carouselBtn");
+
+ buttons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+   e.stopPropagation();
+
+   const id = btn.dataset.id;
+
+   window.location.href = `/blog/post/index.html?id=${id}`;
+  });
+ });
 }
 
 loadFeed();
