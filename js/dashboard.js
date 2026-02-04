@@ -26,26 +26,29 @@ function renderPosts(posts) {
   item.classList.add("dashboardPost");
 
   item.innerHTML = `
-
+<div class="dashboardPostContent">
    <img src="${post.media?.url || ""}" alt="${post.alt}">
      <p class="textInfoBottom">
     ${post.body || ""}
   </p>
 
-   <div class="dashboardActions">
-     <button data-id="${post.id}" class="btn deleteBtn">Delete</button>
-    <button data-id="${post.id}" class="btn editBtn">Edit</button>
-   </div>
+  <div class="dashboardActions">
+
+ <button data-id="${post.id}" class="iconBtn editBtn" title="Edit post">
+  <img src="/icons/editIconGreen.svg" alt="Edit">
+ </button>
+
+ <button data-id="${post.id}" class="iconBtn deleteBtn" title="Delete post">
+  <img src="/icons/deleteIconGreen.svg" alt="Delete">
+ </button>
+
+</div>
+
     <div class="postMeta">
   <span>Created: ${formatDate(post.created)}</span>
-
-  ${
-   post.updated !== post.created ?
-    `<span>Updated: ${formatDate(post.updated)}</span>`
-   : ""
-  }
  </div>
  <p class="authorDashboard">Author: ${post.author.name}</p>
+ </div>
   `;
 
   list.appendChild(item);
