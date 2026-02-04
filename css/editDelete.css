@@ -42,3 +42,11 @@ textarea {
  margin-bottom: 12px;
  font-size: var(--h3-size);
 }
+
+.publishBtn {
+ width: 220px;
+ display: flex;
+ justify-content: center;
+ margin: 0 auto;
+ margin-top: 16px;
+}

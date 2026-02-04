@@ -1,6 +1,7 @@
 /* footer styling */
 
 .footerWrapper {
+ position: relative;
  max-width: 100%;
  background: var(--footer-color), var(--footer-base-color);
 }
@@ -9,16 +10,32 @@
  content: "";
  display: block;
  height: 1px;
- max-width: 600px;
- width: 70%;
+ max-width: 420px;
+ width: 30%;
  margin: 24px auto 24px;
  background: linear-gradient(
   to right,
-  transparent,
-  rgba(255, 255, 255, 0.7),
-  transparent
+  transparent 0%,
+  rgba(255, 255, 255, 0.6) 50%,
+  transparent 100%
  );
 }
+.footerWrapper::after {
+ content: "";
+ position: absolute;
+ top: -90px;
+ left: 0;
+ width: 100%;
+ height: 90px;
+ pointer-events: none;
+
+ background: linear-gradient(
+  to bottom,
+  rgba(71,71,70,0),
+  rgba(71,71,70,0.75)
+ );
+}
+
 
 .footerContent {
  padding: var(--padding-16px);
@@ -95,7 +112,6 @@
   margin: 0 auto;
   padding: var(--padding-24px);
  }
-
  .footerLogo {
   display: flex;
   justify-content: left;

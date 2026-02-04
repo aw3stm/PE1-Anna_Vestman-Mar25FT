@@ -21,7 +21,7 @@
 .cardContent {
  position: relative;
  aspect-ratio: 16 / 9;
- border-radius: 18px;
+ border-radius: 18px 18px 0 0;
  overflow: hidden;
 }
 
@@ -30,6 +30,7 @@
  height: 100%;
  object-fit: cover;
  object-position: 60% 40%;
+ border-radius: 0;
 }
 
 .cardOverlay {
@@ -83,11 +84,9 @@
 .navBtn.left {
  left: 12px;
 }
-
 .navBtn.right {
  right: 12px;
 }
-
 .navBtn {
  transition:
   opacity 0.2s ease,
@@ -146,6 +145,12 @@
 }
 
 /***** CARD GRID ******/
+.gridTitle {
+ text-align: center;
+ font-weight: 700;
+ margin: 24px 0 8px 0;
+}
+
 .mainGrid {
  display: grid;
  grid-template-columns: 1fr;
@@ -154,13 +159,17 @@
 
 .gridWrapper {
  background: var(--header-color);
- border-radius: 16px;
+ border-radius: 16px 16px 0 0;
  border: 1px solid rgba(255, 255, 255, 0.08);
  overflow: hidden;
  transition:
   transform 0.2s ease,
   box-shadow 0.2s ease;
-  margin: 24px 0;
+ margin: 24px 0;
+}
+
+.gridWrapper img {
+ border-radius: 0;
 }
 
 .gridWrapper:hover {
@@ -170,6 +179,7 @@
 .gridText {
  padding: 12px;
 }
+
 .cardGridH2 {
  color: var(--h2-color-black);
  font-weight: 700;
@@ -189,13 +199,30 @@
  cursor: pointer;
 }
 
+.gridShareBtn {
+ position: absolute;
+ top: 10px;
+ right: 10px;
+ z-index: 5;
+ backdrop-filter: blur(6px);
+ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.gridShareBtn:hover {
+ transform: scale(1.05);
+ background: rgba(0, 0, 0, 0.7);
+}
+
 @media (min-width: 768px) {
  .mainWrapper {
   max-width: 1200px;
  }
  .cardOverlay h1 {
   font-size: 48px;
-  max-width: 60%;
+ }
+ .carousel {
+  max-width: 900px;
+  margin: 0 auto;
  }
 
  .carouselBtn {
@@ -211,13 +238,11 @@
    transform 0.2s ease,
    box-shadow 0.2s ease;
  }
-
  .carouselBtn:hover {
   background: rgba(0, 0, 0, 0.75);
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
  }
-
  .navBtn {
   width: 64px;
   height: 64px;
@@ -226,7 +251,6 @@
   width: 14px;
   height: 22px;
  }
-
  .minRead p {
   gap: 8px;
   font-size: var(--p-size-desktop);
@@ -236,7 +260,6 @@
  .textInfoBottom {
   font-size: var(--p-size-desktop);
  }
-
  .dot {
   width: 14px;
   height: 14px;
@@ -244,8 +267,12 @@
  .dot.active {
   width: 40px;
  }
-
  .mainGrid {
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  margin-bottom: 36px;
+ }
+ .gridTitle {
+  font-size: var(--h2-size-desktop);
+  margin: 36px 0 8px 0;
  }
 }

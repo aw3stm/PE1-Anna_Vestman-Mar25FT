@@ -118,9 +118,6 @@ section {
 }
 
 .btn {
- display: flex;
- justify-content: center;
- align-items: center;
  line-height: 1.5;
  position: relative;
  overflow: hidden;
@@ -129,7 +126,7 @@ section {
  border-radius: 28px;
  font-family: var(--p-font);
  font-size: var(--h3-size);
- font-weight: 600;
+ font-weight: 500;
  color: var(--button-text-color);
  background-color: var(--primary-button);
  cursor: pointer;
@@ -173,11 +170,22 @@ section {
 .deleteBtn {
  background-color: transparent;
  border: 1px solid var(--delete-btn-color);
+ padding: var(--padding-12px) var(--padding-8px);
+ font-family: var(--p-font);
+ font-size: var(--h3-size);
+ font-weight: 500;
+ color: var(--delete-btn-color);
+ background-color: transparent;
+ cursor: pointer;
+ transition:
+  transform 0.2s ease,
+  box-shadow 0.2s ease,
+  background 0.2s ease;
 }
 
 .deleteBtn:hover {
  transform: translateY(-2px);
- box-shadow: 0 8px 20px rgba(159, 227, 178, 0.35);
+ box-shadow: 0 8px 20px rgba(72, 29, 32, 0.35);
  background: transparent;
 }
 
@@ -204,6 +212,36 @@ section {
 .carouselBtn:hover {
  transform: scale(1.05);
 }
+
+.shareBtn {
+ background: rgba(0,0,0,0.6);
+ border: none;
+ border-radius: 50%;
+ padding: 8px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+}
+
+.shareBtn img {
+ width: 20px;
+ height: 20px;
+}
+
+.toast {
+ position: fixed;
+ bottom: 20px;
+ left: 50%;
+ transform: translateX(-50%);
+ background: #111;
+ color: white;
+ padding: 10px 16px;
+ border-radius: 12px;
+ font-size: 14px;
+ z-index: 9999;
+}
+
 
 h1 {
  font-family: var(--h1-font);

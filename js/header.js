@@ -25,7 +25,7 @@ class PageHeader extends HTMLElement {
   </nav>
 
   <nav class="navLinks adminNav hidden">
-  <a href="/">Home</a>
+  <a href="/index.html">Home</a>
    <a href="/blog/post/dashboard.html">Dashboard</a>
    <a href="/blog/post/create.html">Create Post</a>
    <a href="/blog/post/edit.html">Edit Post</a>
@@ -53,7 +53,7 @@ class PageHeader extends HTMLElement {
 <div class="mobileMenu">
  <div class="menuViewer">
 
-  <a href="/" class="menuItem">
+  <a href="/index.html" class="menuItem">
    <img src="/icons/homeIcon.png">
    <span>Home</span>
   </a>
@@ -109,6 +109,7 @@ class PageHeader extends HTMLElement {
 
   // Render auth UI
   this.renderAuthState(publicNav, adminNav, loginIcon, logoutIcon, adminMenu);
+  this.setActiveLink();
 
   // Mobile toggle
   hamburger.addEventListener("click", () => {
@@ -143,6 +144,23 @@ class PageHeader extends HTMLElement {
 
    adminMenu.classList.remove("hidden");
   }
+ }
+ setActiveLink() {
+  const currentPath = window.location.pathname.replace(/\/$/, "");
+
+  const links = this.querySelectorAll(".navLinks:not(.hidden) a");
+
+  links.forEach((link) => {
+   if (!link.href || link.getAttribute("href") === "#") return;
+
+   const linkPath = new URL(link.href).pathname.replace(/\/$/, "");
+
+   if (linkPath === currentPath) {
+    link.classList.add("active");
+   } else {
+    link.classList.remove("active");
+   }
+  });
  }
 
  handleLogout() {
