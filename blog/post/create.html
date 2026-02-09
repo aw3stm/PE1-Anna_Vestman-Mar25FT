@@ -13,11 +13,12 @@
   <link rel="stylesheet" href="/css/header.css" />
   <link rel="stylesheet" href="/css/createpost.css" />
  </head>
- <body>
+ <body class="createPage">
   <page-header></page-header>
   <main class="mainWrapper">
    <h1 class="h1-login">New blog post</h1>
    <div class="formWrapper">
+
     <form id="createPostForm" novalidate>
      <label for="titleInput">Title</label>
      <input type="text" id="titleInput" required />
@@ -28,14 +29,27 @@
      <label for="contentInput">Content</label>
      <textarea name="contentInput" id="contentInput"></textarea>
 
-     <label for="contentInput">Image URL</label>
+     <label for="imageInput">Image URL</label>
      <input type="text" id="imageInput" />
 
-     <label for="contentInput">Alt text</label>
+     <label for="altInput">Alt text</label>
      <input type="text" name="altInput" id="altInput" />
 
      <button type="submit" class="btn publishBtn">Publish</button>
     </form>
+
+    <div class="postPrev">
+     <div class="prevContent">
+      <img
+       id="prevImg"
+       src="/images/placeholder.jpg"
+       alt="Green abstract light as a placeholder" />
+      <p id="prevAlt"></p>
+     </div>
+     <div class="prevText">
+      <h2 id="prevTitle">Title shows here</h2>
+      <p id="prevBody">Body text here</p>
+     </div>
    </div>
   </main>
   <page-footer><p></p></page-footer>
