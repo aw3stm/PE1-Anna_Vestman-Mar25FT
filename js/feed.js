@@ -22,12 +22,12 @@ function renderFeed(posts) {
  // CAROUSEL 3 latest posts
  posts.slice(0, 3).forEach((post) => {
   carousel.innerHTML += `
-   <article class="cardWrapper">
+   <section class="cardWrapper">
     <div class="cardContent">
      <img src="${post.media?.url || "/images/placeholder.jpg"}" alt="${post.alt}">
      
      <div class="cardOverlay">
-      <h1>${post.title}</h1>
+      <h2>${post.title}</h2>
 
     <button type="button" class="carouselBtn" 
     data-id="${post.id}">
@@ -64,7 +64,8 @@ function renderFeed(posts) {
   <span>Author: ${post.author.name}</span>
   </div>
     </div>
-   </article>
+   </section>
+   
   `;
  });
 
@@ -73,8 +74,13 @@ function renderFeed(posts) {
   const text = post.body?.slice(0, 120) || "";
 
   grid.innerHTML += `
+  <section class="gridHome">
   <article class="gridWrapper clickablePost" data-id="${post.id}">
    <div class="cardContent gridContent">
+ <button class="shareBtn gridShareBtn" data-id="${post.id}">
+   <img src="/icons/shareIconGreen.svg" alt="Share post">
+  </button>
+
     <img 
      src="${imageUrl}" 
      alt="${post.alt || ""}" />
@@ -92,11 +98,29 @@ function renderFeed(posts) {
     </p>
    </div>
   </article>
+  </section>
  `;
  });
+
  initCarousel();
  attachCarouselButtonClicks();
  attachPostClicks();
+ attachShareButtons();
+}
+
+function attachShareButtons() {
+ const buttons = document.querySelectorAll(".shareBtn");
+
+ buttons.forEach((btn) => {
+  btn.addEventListener("click", async (e) => {
+   e.stopPropagation();
+
+   const id = btn.dataset.id;
+   const url = createPostUrl(id);
+
+   shareLink(url);
+  });
+ });
 }
 
 function attachPostClicks() {
@@ -126,3 +150,28 @@ function attachCarouselButtonClicks() {
 }
 
 loadFeed();
+
+function createPostUrl(id) {
+ return `${window.location.origin}/blog/post/index.html?id=${id}`;
+}
+
+async function shareLink(url) {
+ if (navigator.share) {
+  await navigator.share({
+   title: "FreeTime Feed",
+   url: url,
+  });
+ } else {
+  await navigator.clipboard.writeText(url);
+  showToast("Link copied");
+ }
+}
+
+function showToast(text) {
+ const toast = document.createElement("div");
+ toast.className = "toast";
+ toast.textContent = text;
+ document.body.appendChild(toast);
+
+ setTimeout(() => toast.remove(), 1800);
+}

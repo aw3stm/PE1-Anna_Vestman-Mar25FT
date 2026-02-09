@@ -21,7 +21,6 @@
  padding: var(--padding-24px);
 }
 
-
 #registerForm {
  width: 100%;
  display: flex;
@@ -79,7 +78,7 @@
 .loginWrapper {
  width: 100%;
  max-width: 420px;
- margin: 64px auto;
+ margin: 24px auto;
  padding: var(--padding-24px);
 }
 
@@ -102,7 +101,7 @@
 
 .inputIcon {
  height: 100%;
- width: 56px;
+ width: 64px;
  display: flex;
  align-items: center;
  justify-content: center;
@@ -172,5 +171,4 @@
  .inputGroup {
   max-width: 900px;
  }
-
 }

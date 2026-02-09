@@ -20,3 +20,25 @@ async function loadPost() {
 }
 
 loadPost();
+
+document.getElementById("sharePostBtn").addEventListener("click", async () => {
+ const url = window.location.href;
+
+ if (navigator.share) {
+  await navigator.share({
+   title: document.title,
+   url: url,
+  });
+ } else {
+  await navigator.clipboard.writeText(url);
+  showToast("Link copied");
+ }
+ function showToast(text) {
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = text;
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.remove(), 1800);
+ }
+});

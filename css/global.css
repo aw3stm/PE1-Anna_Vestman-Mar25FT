@@ -54,15 +54,15 @@
  --header-height: 100px;
 
  /* Typography Mobile*/
- --h1-font: "libre-franklin", arial;
+ --h1-font: "mada", arial;
  --h1-size: 24px;
- --h1-size-desktop: 48px;
+ --h1-size-desktop: 40px;
  --h1-color: #fff;
  --h1-color-black: #000000;
 
  --h2-font: "mada", arial;
  --h2-size: 20px;
- --h2-size-desktop: 36px;
+ --h2-size-desktop: 32px;
  --h2-color: #fff;
  --h2-color-black: #000000;
 
@@ -94,12 +94,40 @@ body {
 
 body {
  display: flex;
+ position: relative;
  flex-direction: column;
+}
+
+body::before {
+ content: "";
+ position: fixed;
+ inset: 0;
+
+ background-image: url("/images/laura-olsen-qy8u8sNv_LY-unsplash.jpg");
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+
+ opacity: 0.04; /* NYCKELN */
+ filter: grayscale(100%) blur(1px);
+ mix-blend-mode: overlay;
+
+ pointer-events: none;
+ z-index: 0;
 }
 
 main {
  flex: 1;
+ position: relative;
+ z-index: 1;
 }
+
+header,
+footer {
+ position: relative;
+ z-index: 1;
+}
+
 .mainWrapper {
  width: 100%;
  margin: 0 auto;
@@ -114,13 +142,10 @@ main {
 }
 
 section {
- margin-top: var(--padding-32px);
+ margin-top: var(--padding-24px);
 }
 
 .btn {
- display: flex;
- justify-content: center;
- align-items: center;
  line-height: 1.5;
  position: relative;
  overflow: hidden;
@@ -129,7 +154,7 @@ section {
  border-radius: 28px;
  font-family: var(--p-font);
  font-size: var(--h3-size);
- font-weight: 600;
+ font-weight: 500;
  color: var(--button-text-color);
  background-color: var(--primary-button);
  cursor: pointer;
@@ -173,11 +198,22 @@ section {
 .deleteBtn {
  background-color: transparent;
  border: 1px solid var(--delete-btn-color);
+ padding: var(--padding-12px) var(--padding-8px);
+ font-family: var(--p-font);
+ font-size: var(--h3-size);
+ font-weight: 500;
+ color: var(--delete-btn-color);
+ background-color: transparent;
+ cursor: pointer;
+ transition:
+  transform 0.2s ease,
+  box-shadow 0.2s ease,
+  background 0.2s ease;
 }
 
 .deleteBtn:hover {
  transform: translateY(-2px);
- box-shadow: 0 8px 20px rgba(159, 227, 178, 0.35);
+ box-shadow: 0 8px 20px rgba(72, 29, 32, 0.35);
  background: transparent;
 }
 
@@ -205,18 +241,45 @@ section {
  transform: scale(1.05);
 }
 
+.shareBtn {
+ background: rgba(0, 0, 0, 0.6);
+ border: none;
+ border-radius: 50%;
+ padding: 8px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+}
+
+.shareBtn img {
+ width: 20px;
+ height: 20px;
+}
+
+.toast {
+ position: fixed;
+ bottom: 20px;
+ left: 50%;
+ transform: translateX(-50%);
+ background: #111;
+ color: white;
+ padding: 10px 16px;
+ border-radius: 12px;
+ font-size: 14px;
+ z-index: 9999;
+}
+
 h1 {
  font-family: var(--h1-font);
  font-size: var(--h1-size);
  color: var(--h1-color);
- line-height: 1.55;
 }
 
 h2 {
  font-family: var(--h2-font);
  font-size: var(--h2-size);
  color: var(--h2-color);
- line-height: 1.55;
  font-weight: 400;
 }
 

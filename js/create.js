@@ -41,8 +41,7 @@ form.addEventListener("submit", async (e) => {
   submitBtn.disabled = true;
   submitBtn.textContent = "Publishing...";
 
-  const result = await createPost(postData);
-
+  await createPost(postData);
   window.location.href = "/index.html";
  } catch (error) {
   console.error("CREATE ERROR:", error.message);
