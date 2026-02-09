@@ -108,7 +108,7 @@ body::before {
  background-position: center;
  background-repeat: no-repeat;
 
- opacity: 0.04; /* NYCKELN */
+ opacity: 0.04;
  filter: grayscale(100%) blur(1px);
  mix-blend-mode: overlay;
 
@@ -136,7 +136,6 @@ footer {
 
 .formWrapper {
  width: 100%;
- max-width: 420px;
  margin: 0 auto;
  padding: var(--padding-16px);
 }

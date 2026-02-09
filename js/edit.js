@@ -1,5 +1,19 @@
 import { getPostById, updatePost } from "./posts.js";
 import { isAdmin, isLoggedIn } from "./auth.js";
+import { startInactivitySignout } from "./utils.js";
+
+//Inactivity more than 10 min from admin > Signout
+function logout() {
+ localStorage.removeItem("token");
+ window.location.replace("/account/login.html");
+}
+
+if (localStorage.getItem("token")) {
+ startInactivitySignout({
+  timeout: 10 * 60 * 1000,
+  onLogout: logout,
+ });
+}
 
 // ROUTE GUARD
 if (!isLoggedIn() || !isAdmin()) {

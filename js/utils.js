@@ -9,3 +9,25 @@ export function formatDate(dateString) {
   minute: "2-digit",
  });
 }
+
+const TIMEOUT_LIMIT = 10 * 60 * 1000;
+
+export function startInactivitySignout({
+ timeout = TIMEOUT_LIMIT,
+ onLogout,
+ events = ["click", "mousemove", "keydown", "scroll", "touchstart"],
+} = {}) {
+ let inactivityTimer;
+ function resetTimer() {
+  clearTimeout(inactivityTimer);
+  inactivityTimer = setTimeout(onLogout, timeout);
+ }
+ events.forEach((event) => window.addEventListener(event, resetTimer, true));
+ resetTimer();
+ return () => {
+  clearTimeout(inactivityTimer);
+  events.forEach((event) =>
+   window.removeEventListener(event, resetTimer, true),
+  );
+ };
+}

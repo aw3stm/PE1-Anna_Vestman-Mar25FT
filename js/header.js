@@ -115,6 +115,7 @@ class PageHeader extends HTMLElement {
   hamburger.addEventListener("click", () => {
    mobileMenu.classList.toggle("open");
    hamburger.classList.toggle("active");
+   document.body.classList.toggle("menu-open");
   });
 
   // Logout (desktop + mobile)
