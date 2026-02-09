@@ -1,8 +1,22 @@
 import { formatDate } from "./utils.js";
 import { getPosts, deletePost } from "./posts.js";
 import { isAdmin, isLoggedIn } from "./auth.js";
+import { startInactivitySignout } from "./utils.js";
 
-// GUARD
+//Inactivity more than 10 min from admin > Signout
+function logout() {
+  localStorage.removeItem("token");
+  window.location.replace("/account/login.html");
+}
+
+if (localStorage.getItem("token")) {
+  startInactivitySignout({
+    timeout: 10 * 60 * 1000,
+    onLogout: logout
+  });
+}
+
+// GUARD > Check if the person are admin/owner
 if (!isLoggedIn() || !isAdmin()) {
  window.location.href = "/account/login.html";
 }
