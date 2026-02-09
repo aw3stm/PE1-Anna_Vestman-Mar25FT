@@ -35,11 +35,11 @@
 /****** SIDEBAR MOBILE *******/
 .mobileMenu {
  position: fixed;
- width: 180px;
+ width: 280px;
  height: calc(100vh - var(--header-height));
  background: var(--header-color);
  border-left: 1px solid var(--styling-color);
- box-shadow: -12px 0 30px rgba(0, 0, 0, 0.25);
+ box-shadow: -12px 0 30px rgba(118, 99, 99, 0.25);
  border-top-left-radius: 15px;
  border-bottom-left-radius: 15px;
  transform: translateX(100%);
@@ -48,11 +48,6 @@
  z-index: 1000;
  top: var(--header-height);
  right: 0;
-}
-
-.mobileMenu a:hover {
- color: var(--styling-color);
- transform: translateX(4px);
 }
 
 #menuAdmin {
@@ -64,23 +59,44 @@
 .menuItem {
  display: flex;
  align-items: center;
- gap: 24px;
+ gap: 20px;
+
  font-size: var(--small-text-size);
  font-weight: 500;
+
  color: var(--main-bg-color);
- padding: var(--padding-8px) 0;
- transition: 0.2s ease;
+ padding: 10px 14px;
+ border-radius: 10px;
+
+ transition:
+  background-color 0.2s ease,
+  transform 0.2s ease,
+  color 0.2s ease;
+
  text-decoration: none;
+}
+
+.menuItem:hover {
+ background: rgba(110, 231, 183, 0.18); 
+ color: var(--styling-color);
+ transform: translateX(4px);
 }
 
 .menuItem img {
  width: 18px;
  height: 18px;
+ opacity: 0.75;
+ transition: opacity 0.2s ease;
 }
 
-.menuItem:hover {
- background: rgba(30, 28, 28, 0.08);
- border-radius: 8px;
+.menuItem:hover img {
+ opacity: 1;
+}
+
+.menuItem.active {
+ background: rgba(110, 231, 183, 0.28);
+ color: var(--styling-color);
+ font-weight: 600;
 }
 
 .mobileMenu.open {
@@ -132,6 +148,7 @@
 .hamburgerBtn.active .iconClose {
  opacity: 1;
 }
+
 @media (min-width: 767px) {
  .innerHeader {
   display: flex;

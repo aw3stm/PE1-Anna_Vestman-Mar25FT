@@ -22,12 +22,12 @@ function renderFeed(posts) {
  // CAROUSEL 3 latest posts
  posts.slice(0, 3).forEach((post) => {
   carousel.innerHTML += `
-   <article class="cardWrapper">
+   <section class="cardWrapper">
     <div class="cardContent">
      <img src="${post.media?.url || "/images/placeholder.jpg"}" alt="${post.alt}">
      
      <div class="cardOverlay">
-      <h1>${post.title}</h1>
+      <h2>${post.title}</h2>
 
     <button type="button" class="carouselBtn" 
     data-id="${post.id}">
@@ -64,7 +64,8 @@ function renderFeed(posts) {
   <span>Author: ${post.author.name}</span>
   </div>
     </div>
-   </article>
+   </section>
+   
   `;
  });
 
@@ -73,6 +74,7 @@ function renderFeed(posts) {
   const text = post.body?.slice(0, 120) || "";
 
   grid.innerHTML += `
+  <section class="gridHome">
   <article class="gridWrapper clickablePost" data-id="${post.id}">
    <div class="cardContent gridContent">
  <button class="shareBtn gridShareBtn" data-id="${post.id}">
@@ -96,6 +98,7 @@ function renderFeed(posts) {
     </p>
    </div>
   </article>
+  </section>
  `;
  });
 

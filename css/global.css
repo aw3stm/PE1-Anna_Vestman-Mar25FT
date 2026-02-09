@@ -54,15 +54,15 @@
  --header-height: 100px;
 
  /* Typography Mobile*/
- --h1-font: "libre-franklin", arial;
+ --h1-font: "mada", arial;
  --h1-size: 24px;
- --h1-size-desktop: 48px;
+ --h1-size-desktop: 40px;
  --h1-color: #fff;
  --h1-color-black: #000000;
 
  --h2-font: "mada", arial;
  --h2-size: 20px;
- --h2-size-desktop: 36px;
+ --h2-size-desktop: 32px;
  --h2-color: #fff;
  --h2-color-black: #000000;
 
@@ -94,12 +94,40 @@ body {
 
 body {
  display: flex;
+ position: relative;
  flex-direction: column;
+}
+
+body::before {
+ content: "";
+ position: fixed;
+ inset: 0;
+
+ background-image: url("/images/laura-olsen-qy8u8sNv_LY-unsplash.jpg");
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+
+ opacity: 0.04; /* NYCKELN */
+ filter: grayscale(100%) blur(1px);
+ mix-blend-mode: overlay;
+
+ pointer-events: none;
+ z-index: 0;
 }
 
 main {
  flex: 1;
+ position: relative;
+ z-index: 1;
 }
+
+header,
+footer {
+ position: relative;
+ z-index: 1;
+}
+
 .mainWrapper {
  width: 100%;
  margin: 0 auto;
@@ -114,7 +142,7 @@ main {
 }
 
 section {
- margin-top: var(--padding-32px);
+ margin-top: var(--padding-24px);
 }
 
 .btn {
@@ -214,7 +242,7 @@ section {
 }
 
 .shareBtn {
- background: rgba(0,0,0,0.6);
+ background: rgba(0, 0, 0, 0.6);
  border: none;
  border-radius: 50%;
  padding: 8px;
@@ -242,19 +270,16 @@ section {
  z-index: 9999;
 }
 
-
 h1 {
  font-family: var(--h1-font);
  font-size: var(--h1-size);
  color: var(--h1-color);
- line-height: 1.55;
 }
 
 h2 {
  font-family: var(--h2-font);
  font-size: var(--h2-size);
  color: var(--h2-color);
- line-height: 1.55;
  font-weight: 400;
 }
 

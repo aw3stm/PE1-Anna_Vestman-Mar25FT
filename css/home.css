@@ -1,5 +1,15 @@
-/***** CAROUSEL ******/
+.titleHome {
+ max-width: 420px;
+ margin: 24px auto;
+ text-align: center;
+}
 
+p.pHome {
+ max-width: 420px;
+ margin: 0 auto;
+}
+
+/***** CAROUSEL ******/
 .carousel {
  overflow: hidden;
  width: 100%;
@@ -44,7 +54,7 @@
  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.25));
 }
 
-.cardOverlay h1 {
+.cardOverlay h2 {
  text-align: center;
  max-width: 85%;
  font-size: 32px;
@@ -146,9 +156,10 @@
 
 /***** CARD GRID ******/
 .gridTitle {
+ padding: var(--padding-12px);
  text-align: center;
  font-weight: 700;
- margin: 24px 0 8px 0;
+ margin-top: 32px;
 }
 
 .mainGrid {
@@ -165,7 +176,7 @@
  transition:
   transform 0.2s ease,
   box-shadow 0.2s ease;
- margin: 24px 0;
+ margin: 16px 0;
 }
 
 .gridWrapper img {
@@ -215,13 +226,22 @@
 
 @media (min-width: 768px) {
  .mainWrapper {
-  max-width: 1200px;
+  width: 100%;
  }
- .cardOverlay h1 {
-  font-size: 48px;
+ .titleHome {
+  max-width: 900px;
+  font-size: var(--h1-size-desktop);
+ }
+ p.pHome {
+  max-width: 678px;
+  margin: 24px auto;
+  font-size: var(--p-size-desktop);
+ }
+ .cardOverlay h2 {
+  font-size: var(--h1-size-desktop);
  }
  .carousel {
-  max-width: 900px;
+  width: 100%;
   margin: 0 auto;
  }
 
@@ -273,6 +293,6 @@
  }
  .gridTitle {
   font-size: var(--h2-size-desktop);
-  margin: 36px 0 8px 0;
+  margin-top: 40px;
  }
 }

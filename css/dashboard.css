@@ -96,15 +96,17 @@ p.textInfoBottom {
  display: flex;
  align-items: center;
  justify-content: center;
- background: rgba(0,0,0,0.55);
+ background: rgba(0, 0, 0, 0.55);
  backdrop-filter: blur(6px);
  cursor: pointer;
- transition: transform 0.15s ease, background 0.15s ease;
+ transition:
+  transform 0.15s ease,
+  background 0.15s ease;
 }
 
 .iconBtn:hover {
  transform: scale(1.05);
- background: rgba(0,0,0,0.7);
+ background: rgba(0, 0, 0, 0.7);
 }
 
 .iconBtn {
@@ -117,10 +119,9 @@ p.textInfoBottom {
  height: 18px;
 }
 
-
 @media (min-width: 768px) {
  .dashboardWrapper {
-  max-width: 1200px;
+  width: 50%;
   margin: 24px auto;
   padding: var(--padding-24px) var(--padding-16px);
  }
@@ -152,5 +153,4 @@ p.textInfoBottom {
   width: 24px;
   height: 24px;
  }
-
 }
