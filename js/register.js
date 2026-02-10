@@ -1,7 +1,7 @@
-import { BASE_URL } from "./api.js";
+import { apiRequest } from "./client.js";
 
 const form = document.getElementById("registerForm");
-const error = document.getElementById("inputError");
+const error = document.getElementById("errorText");
 
 form.addEventListener("submit", async (e) => {
  e.preventDefault();
@@ -16,20 +16,12 @@ form.addEventListener("submit", async (e) => {
  }
 
  try {
-  const response = await fetch(`${BASE_URL}/auth/register`, {
+  await apiRequest("/auth/register", {
    method: "POST",
-   headers: {
-    "Content-Type": "application/json",
-   },
-   body: JSON.stringify({
-    name,
-    email,
-    password,
-   }),
+   body: JSON.stringify({ name, email, password }),
   });
 
   const data = await response.json();
-
   if (!response.ok) {
    throw new Error(data.errors?.[0]?.message || "Registration failed");
   }

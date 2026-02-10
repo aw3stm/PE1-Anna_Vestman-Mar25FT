@@ -18,7 +18,6 @@
   <main class="mainWrapper">
    <h1 class="h1-login">New blog post</h1>
    <div class="formWrapper">
-
     <form id="createPostForm" novalidate>
      <label for="titleInput">Title</label>
      <input type="text" id="titleInput" required />
@@ -37,19 +36,22 @@
 
      <button type="submit" class="btn publishBtn">Publish</button>
     </form>
-
-    <div class="postPrev">
-     <div class="prevContent">
-      <img
-       id="prevImg"
-       src="/images/placeholder.jpg"
-       alt="Green abstract light as a placeholder" />
-      <p id="prevAlt"></p>
+    <div class="postPrevDesktop">
+     <h2 class="postPrevH2">Post Preview</h2>
+     <div class="postPrev">
+      <div class="prevContent">
+       <img
+        id="prevImg"
+        src="/images/placeholder.jpg"
+        alt="Green abstract light as a placeholder" />
+       <p id="prevAlt"></p>
+      </div>
+      <div class="prevText">
+       <h2 id="prevTitle">Title shows here</h2>
+       <p id="prevBody">Body text here</p>
+      </div>
      </div>
-     <div class="prevText">
-      <h2 id="prevTitle">Title shows here</h2>
-      <p id="prevBody">Body text here</p>
-     </div>
+    </div>
    </div>
   </main>
   <page-footer><p></p></page-footer>
