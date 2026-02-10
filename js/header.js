@@ -1,4 +1,7 @@
 import { isAdmin, isLoggedIn, logout } from "./auth.js";
+import { initBreadcrumb } from "./breadcrumb.js";
+
+document.addEventListener("DOMContentLoaded", initBreadcrumb);
 
 class PageHeader extends HTMLElement {
  connectedCallback() {

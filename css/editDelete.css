@@ -47,6 +47,80 @@ textarea {
  width: 220px;
  display: flex;
  justify-content: center;
- margin: 0 auto;
- margin-top: 16px;
+ margin: 16px auto;
+}
+
+.postPrevH2 {
+ margin: 24px;
+}
+
+.postPrev {
+ display: flex;
+ flex-direction: column;
+ gap: 16px;
+ background: var(--header-color);
+ border-radius: 18px;
+ border: 1px solid rgba(255, 255, 255, 0, 08);
+ padding: var(--padding-24px);
+ margin: 0 24px 24px 24px;
+}
+
+.prevContent {
+ width: 100%;
+ aspect-ratio: 16 / 9;
+ border-radius: 18px;
+ overflow: hidden;
+ background: #fff;
+}
+
+#prevImg {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ display: block;
+}
+
+#prevTitle,
+#prevBody {
+ color: var(--black-color);
+ text-align: center;
+}
+
+@media (min-width: 767px) {
+ .mainWrapper {
+  max-width: 1200px;
+  margin-bottom: 40px;
+ }
+ .formWrapper {
+  width: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 48px;
+ }
+ #createPostForm {
+  flex: 1;
+  min-width: none;
+ }
+ .postPrevDesktop {
+  flex: 1.2;
+ }
+ .postPrevH2 {
+  margin-bottom: 12px;
+  font-size: var(--h2-size-desktop);
+ }
+ #prevTitle {
+  font-size: var(--h2-size-desktop);
+ }
+ #prevBody {
+  font-size: var(--p-size-desktop);
+ }
+ #createPostForm input {
+  font-size: var(--p-size-desktop);
+ }
+ textarea {
+  font-size: var(--p-size-desktop);
+ }
+ #createPostForm label {
+  font-size: var(--h3-size-desktop);
+ }
 }

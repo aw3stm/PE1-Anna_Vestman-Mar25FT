@@ -1,6 +1,6 @@
 import { getPostById, updatePost } from "./posts.js";
 import { isAdmin, isLoggedIn } from "./auth.js";
-import { startInactivitySignout } from "./utils.js";
+import { startInactivitySignout, initPostPrev } from "./utils.js";
 
 //Inactivity more than 10 min from admin > Signout
 function logout() {
@@ -66,16 +66,23 @@ async function loadPost() {
  }
 }
 
-document.addEventListener("DOMContentLoaded", loadPost);
+document.addEventListener("DOMContentLoaded", async () => {
+ await loadPost();
+ initPostPrev({
+  titleInput,
+  contentInput,
+  imageInput,
+  altInput,
+  prevTitle: document.getElementById("prevTitle"),
+  prevBody: document.getElementById("prevBody"),
+  prevImg: document.getElementById("prevImg"),
+  prevAlt: document.getElementById("prevAlt"),
+ });
+});
 
 // UPDATE POST
 form.addEventListener("submit", async (e) => {
  e.preventDefault();
-
- if (!post) {
-  alert("No post selected to edit");
-  return;
- }
 
  const updatedData = {
   title: titleInput.value.trim(),

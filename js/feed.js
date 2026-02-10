@@ -123,6 +123,7 @@ function attachShareButtons() {
  });
 }
 
+//When user clicks on grid image > go to single page
 function attachPostClicks() {
  const posts = document.querySelectorAll(".clickablePost");
 
@@ -135,6 +136,7 @@ function attachPostClicks() {
  });
 }
 
+//User clicks on read more button > go to single page
 function attachCarouselButtonClicks() {
  const buttons = document.querySelectorAll(".carouselBtn");
 
@@ -155,6 +157,7 @@ function createPostUrl(id) {
  return `${window.location.origin}/blog/post/index.html?id=${id}`;
 }
 
+//Share post with others
 async function shareLink(url) {
  if (navigator.share) {
   await navigator.share({
