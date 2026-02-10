@@ -4,6 +4,12 @@ import { saveAuth } from "./auth.js";
 const form = document.getElementById("loginForm");
 const error = document.getElementById("errorText");
 
+form.addEventListener("keydown", async (e) => {
+ if (e.key === "Enter" && e.target.tagName !== "TEXTAREA") {
+  e.preventDefault();
+ }
+});
+
 form.addEventListener("submit", async (e) => {
  e.preventDefault();
 
@@ -16,7 +22,6 @@ form.addEventListener("submit", async (e) => {
    body: JSON.stringify({ email, password }),
   });
 
-  // IMPORTANT
   saveAuth(result.data);
 
   window.location.href = "/index.html";

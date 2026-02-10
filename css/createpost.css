@@ -51,6 +51,10 @@ textarea {
  margin-top: 16px;
 }
 
+.postPrevH2 {
+ margin: 32px 0 0 32px;
+}
+
 .postPrev {
  display: flex;
  flex-direction: column;
@@ -59,7 +63,7 @@ textarea {
  border-radius: 18px;
  border: 1px solid rgba(255, 255, 255, 0, 08);
  padding: var(--padding-24px);
- margin: 24px;
+ margin: 0 24px 24px 24px;
 }
 
 .prevContent {
@@ -98,9 +102,12 @@ textarea {
   flex: 1;
   min-width: none;
  }
- .postPrev {
-  flex: 1;
-  position: sticky;
+ .postPrevDesktop {
+  flex: 1.2;
+ }
+ .postPrevH2 {
+  margin-bottom: 12px;
+  font-size: var(--h2-size-desktop);
  }
  #prevTitle {
   font-size: var(--h2-size-desktop);
@@ -111,7 +118,6 @@ textarea {
  #createPostForm input {
   font-size: var(--p-size-desktop);
  }
-
  textarea {
   font-size: var(--p-size-desktop);
  }

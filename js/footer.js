@@ -3,6 +3,7 @@ class pageFooter extends HTMLElement {
   this.innerHTML = `
  
     <footer class="footerWrapper">
+    <div class="footerDivider"></div>
     <div class="footerContent">
         <div class="footerTopText">
         <div class="footerLogo">

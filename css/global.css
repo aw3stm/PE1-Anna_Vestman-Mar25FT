@@ -102,19 +102,17 @@ body::before {
  content: "";
  position: fixed;
  inset: 0;
-
  background-image: url("/images/laura-olsen-qy8u8sNv_LY-unsplash.jpg");
  background-size: cover;
  background-position: center;
  background-repeat: no-repeat;
-
  opacity: 0.04;
  filter: grayscale(100%) blur(1px);
  mix-blend-mode: overlay;
-
  pointer-events: none;
  z-index: 0;
 }
+
 
 main {
  flex: 1;

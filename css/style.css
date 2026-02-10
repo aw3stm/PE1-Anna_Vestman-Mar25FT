@@ -25,7 +25,7 @@
  width: 100%;
  display: flex;
  flex-direction: column;
- gap: var(--padding-16px);
+ gap: 16px;
 }
 
 #registerForm input {
@@ -80,23 +80,24 @@
  max-width: 420px;
  margin: 24px auto;
  padding: var(--padding-24px);
+ background-color: transparent;
 }
 
 #loginForm {
  width: 100%;
  display: flex;
  flex-direction: column;
- gap: var(--padding-32px);
 }
 
 .inputGroup {
  width: 100%;
  display: flex;
- height: 56px;
+ height: 64px;
  align-items: center;
  background: var(--primary-bg-color);
  border: 1px solid var(--styling-color);
  border-radius: 8px;
+ margin-bottom: 24px;
 }
 
 .inputIcon {
@@ -158,17 +159,16 @@
  .register-btn {
   max-width: 250px;
  }
-
  #loginForm {
   display: flex;
+  flex-direction: column;
   font-size: var(--h3-size-desktop);
   padding: var(--padding-32px) 0;
-  flex-direction: column;
-  gap: var(--padding-32px);
-  margin-top: var(--padding-40px);
+  gap: 32px;
   margin: 0 auto;
  }
  .inputGroup {
   max-width: 900px;
+  margin-bottom: 8px;
  }
 }

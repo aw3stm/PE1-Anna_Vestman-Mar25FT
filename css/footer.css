@@ -3,22 +3,23 @@
 .footerWrapper {
  position: relative;
  max-width: 100%;
+ overflow: hidden;
  background: var(--footer-color), var(--footer-base-color);
 }
 
 .footerWrapper::before {
  content: "";
- display: block;
- height: 1px;
- max-width: 420px;
- width: 30%;
- margin: 24px auto 24px;
- background: linear-gradient(
-  to right,
-  transparent 0%,
-  rgba(255, 255, 255, 0.6) 50%,
-  transparent 100%
- );
+ position: absolute;
+ inset: 0;
+ background-image: url("/images/laura-olsen-qy8u8sNv_LY-unsplash.jpg");
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+ opacity: 0.04;
+ filter: grayscale(100%) blur(1px);
+ mix-blend-mode: overlay;
+ pointer-events: none;
+ z-index: 0;
 }
 .footerWrapper::after {
  content: "";
@@ -31,20 +32,36 @@
 
  background: linear-gradient(
   to bottom,
-  rgba(71,71,70,0),
-  rgba(71,71,70,0.75)
+  rgba(71, 71, 70, 0),
+  rgba(71, 71, 70, 0.75)
  );
 }
 
+.footerDivider {
+ height: 1px;
+ width: 40%;
+ max-width: 420px;
+ margin: 0 auto;
+ background: linear-gradient(
+  to right,
+  transparent,
+  rgba(255, 255, 255, 0.6),
+  transparent
+ );
+ position: relative;
+ z-index: 1;
+}
 
 .footerContent {
+ z-index: 1;
+ position: relative;
  padding: var(--padding-16px);
 }
 
 .footerTopText {
  display: flex;
  flex-direction: column;
- gap: 24px;
+ gap: 16px;
 }
 
 .footerLogo {
@@ -72,7 +89,7 @@
  display: flex;
  justify-content: center;
  gap: var(--padding-12px);
- padding: var(--padding-16px);
+ padding: var(--padding-12px) 0;
 }
 
 .footerLinks a {
@@ -82,15 +99,15 @@
 .footerSocialIcons {
  display: flex;
  justify-content: center;
- gap: var(--padding-32px);
- padding: var(--padding-24px);
+ gap: var(--padding-24px);
+ padding: var(--padding-16px) 0;
 }
 
 .footerPolicy {
  display: flex;
  justify-content: center;
  gap: var(--padding-16px);
- margin-bottom: var(--padding-16px);
+ margin-bottom: var(--padding-8px);
  cursor: pointer;
 }
 
@@ -110,7 +127,7 @@
  .footerContent {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--padding-24px);
+  padding: 20px 24px 16px;
  }
  .footerLogo {
   display: flex;
@@ -131,7 +148,7 @@
  .footerLinks {
   justify-content: center;
   gap: var(--padding-40px);
-  padding: var(--padding-32px);
+  padding: var(--padding-24px) 0;
  }
 
  .footerLinks a {
@@ -141,7 +158,8 @@
  .footerSocialIcons {
   justify-content: center;
   align-items: center;
-  gap: var(--padding-48px);
+  padding: var(--padding-16px) 0;
+  gap: var(--padding-32px);
  }
 
  .footerSocialIcons img {
@@ -153,7 +171,7 @@
  .footerPolicy {
   justify-content: center;
   gap: var(--padding-32px);
-  padding: var(--padding-40px);
+  padding: 24px 0 16px;
  }
 
  .footerPolicy p {
