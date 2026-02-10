@@ -15,37 +15,46 @@ export function initCarousel() {
   track.style.transform = `translateX(-${index * 100}%)`;
   updateDots();
  }
+
  function updateDots() {
   if (!dots.length) return;
 
   dots.forEach((dot) => dot.classList.remove("active"));
-
-  if (dots[index]) {
-   dots[index].classList.add("active");
-  }
+  dots[index]?.classList.add("active");
  }
+
+ function nextPage() {
+  index = (index + 1) % slides.length;
+  updateCarousel();
+ }
+
+ function prevPage() {
+  index = (index - 1 + slides.length) % slides.length;
+  updateCarousel();
+ }
+
+ const intervalTime = 5000;
+ let autoPlay = setInterval(nextPage, intervalTime);
+
+ function resetAutoplay() {
+  clearInterval(autoPlay);
+  autoPlay = setInterval(nextPage, intervalTime);
+ }
+
+ track.addEventListener("mouseenter", () => clearInterval(autoPlay));
+ track.addEventListener("mouseleave", resetAutoplay);
 
  nextBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-   index++;
-
-   if (index >= slides.length) {
-    index = 0;
-   }
-
-   updateCarousel();
+   nextPage();
+   resetAutoplay();
   });
  });
 
  prevBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-   index--;
-
-   if (index < 0) {
-    index = slides.length - 1;
-   }
-
-   updateCarousel();
+   prevPage();
+   resetAutoplay();
   });
  });
 
