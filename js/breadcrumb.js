@@ -1,12 +1,9 @@
 const breadcrumb_map = {
  blog: null,
  post: null,
- "index.html": {
-  label: "Home",
-  href: "/index.html",
- },
+
  "dashboard.html": {
-  label: "Admin Dashboard",
+  label: "Dashboard",
   href: "/blog/post/dashboard.html",
  },
  "create.html": {
