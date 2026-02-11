@@ -5,15 +5,15 @@ import { startInactivitySignout } from "./utils.js";
 
 //Inactivity more than 10 min from admin > Signout
 function logout() {
-  localStorage.removeItem("token");
-  window.location.replace("/account/login.html");
+ localStorage.removeItem("token");
+ window.location.replace("/account/login.html");
 }
 
 if (localStorage.getItem("token")) {
-  startInactivitySignout({
-    timeout: 10 * 60 * 1000,
-    onLogout: logout
-  });
+ startInactivitySignout({
+  timeout: 10 * 60 * 1000,
+  onLogout: logout,
+ });
 }
 
 // GUARD > Check if the person are admin/owner
@@ -22,6 +22,36 @@ if (!isLoggedIn() || !isAdmin()) {
 }
 
 const list = document.getElementById("blogList");
+list.addEventListener("click", async (e) => {
+ const editBtn = e.target.closest(".editBtn");
+ const deleteBtn = e.target.closest(".deleteBtn");
+ const postImg = e.target.closest(".postImg");
+
+ if (editBtn) {
+  e.stopPropagation();
+  const id = editBtn.dataset.id;
+  window.location.href = `/blog/post/edit.html?id=${id}`;
+  return;
+ }
+ if (deleteBtn) {
+  e.stopPropagation();
+  const id = deleteBtn.dataset.id;
+  const confirmDelete = confirm("Do you really want to delete this post?");
+  if (!confirmDelete) return;
+  try {
+   await deletePost(id);
+   loadDashboard();
+  } catch (error) {
+   alert(error.message);
+  }
+  return;
+ }
+ if (postImg) {
+  const post = postImg.closest(".dashboardPost");
+  const id = post.dataset.id;
+  window.location.href = `/blog/post/index.html?id=${id}`;
+ }
+});
 
 async function loadDashboard() {
  try {
@@ -38,10 +68,11 @@ function renderPosts(posts) {
  posts.forEach((post) => {
   const item = document.createElement("div");
   item.classList.add("dashboardPost");
+  item.dataset.id = post.id;
 
   item.innerHTML = `
 <div class="dashboardPostContent">
-   <img src="${post.media?.url || ""}" alt="${post.alt}">
+   <img class="postImg" src="${post.media?.url || ""}" alt="${post.alt}">
      <p class="textInfoBottom">
     ${post.body || ""}
   </p>

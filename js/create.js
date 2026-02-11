@@ -1,6 +1,6 @@
 import { createPost } from "./posts.js";
 import { isAdmin, isLoggedIn } from "./auth.js";
-import { startInactivitySignout } from "./utils.js";
+import { startInactivitySignout, initPostPrev } from "./utils.js";
 
 //Inactivity more than 10 min from admin > Signout
 function logout() {
@@ -36,22 +36,15 @@ const prevAlt = document.getElementById("prevAlt");
 const prevTitle = document.getElementById("prevTitle");
 const prevBody = document.getElementById("prevBody");
 
-imageInput.addEventListener("input", () => {
- prevImg.src = imageInput.value.trim() || "/images/placeholder.jpg";
-});
-
-altInput.addEventListener("input", () => {
- if (prevAlt) {
-  prevAlt.textContent = altInput.value;
- }
-});
-
-titleInput.addEventListener("input", () => {
- prevTitle.textContent = titleInput.value || "Title shows here";
-});
-
-contentInput.addEventListener("input", () => {
- prevBody.textContent = contentInput.value || "Body text here";
+initPostPrev({
+ titleInput,
+ contentInput,
+ imageInput,
+ altInput,
+ prevTitle,
+ prevBody,
+ prevImg,
+ prevAlt,
 });
 
 const fields = [

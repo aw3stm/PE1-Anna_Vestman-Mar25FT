@@ -56,13 +56,13 @@
  /* Typography Mobile*/
  --h1-font: "mada", arial;
  --h1-size: 24px;
- --h1-size-desktop: 40px;
+ --h1-size-desktop: 32px;
  --h1-color: #fff;
  --h1-color-black: #000000;
 
  --h2-font: "mada", arial;
  --h2-size: 20px;
- --h2-size-desktop: 32px;
+ --h2-size-desktop: 24px;
  --h2-color: #fff;
  --h2-color-black: #000000;
 
@@ -113,7 +113,6 @@ body::before {
  z-index: 0;
 }
 
-
 main {
  flex: 1;
  position: relative;
@@ -124,6 +123,57 @@ header,
 footer {
  position: relative;
  z-index: 1;
+}
+
+.breadcrumb {
+ padding: var(--padding-12px) var(--padding-16px);
+ font-size: 14px;
+ position: relative;
+ z-index: 2;
+}
+
+.breadcrumb ol {
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ overflow-x: auto;
+ white-space: nowrap;
+ scrollbar-width: none;
+}
+
+.breadcrumb ol::-webkit-scrollbar {
+ display: none;
+}
+
+.breadcrumb li {
+ display: flex;
+ align-items: center;
+ font-weight: 400;
+}
+
+.breadcrumb a {
+ color: var(--main-text-color);
+ opacity: 0.7;
+ transition: opacity 0.3s ease;
+}
+
+.breadcrumb a:hover {
+ opacity: 1;
+}
+.breadcrumb li:last-child a,
+.breadcrumb li:last-child span {
+ font-weight: 500;
+ color: var(--primary-color);
+ opacity: 1;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: ">";
+  margin-left: 8px;
+  opacity: 0.5;
 }
 
 .mainWrapper {
@@ -319,4 +369,19 @@ a {
 
 .hidden {
  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .breadcrumb {
+    padding: var(--padding-16px) var(--padding-24px);
+    font-size: 16px;
+  }
+
+  .breadcrumb ol {
+    gap: 10px;
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    margin-left: 10px;
+  }
 }

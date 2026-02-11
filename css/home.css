@@ -17,6 +17,8 @@ p.pHome {
 }
 .carouselContent {
  display: flex;
+ transition: transform 500ms cubic-bezier(0.22, 0.61, 0.38, 1);
+ will-change: transform;
 }
 
 .cardWrapper {
