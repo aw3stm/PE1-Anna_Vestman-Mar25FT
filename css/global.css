@@ -130,6 +130,7 @@ footer {
  font-size: 14px;
  position: relative;
  z-index: 2;
+ gap: 8px;
 }
 
 .breadcrumb ol {
@@ -163,6 +164,7 @@ footer {
 .breadcrumb a:hover {
  opacity: 1;
 }
+
 .breadcrumb li:last-child a,
 .breadcrumb li:last-child span {
  font-weight: 500;
@@ -171,9 +173,11 @@ footer {
 }
 
 .breadcrumb li:not(:last-child)::after {
-  content: ">";
-  margin-left: 8px;
-  opacity: 0.5;
+ content: "›";
+ margin-left: 8px;
+ opacity: 0.5;
+ display: inline-flex;
+ align-items: center;
 }
 
 .mainWrapper {
@@ -372,16 +376,16 @@ a {
 }
 
 @media (min-width: 768px) {
-  .breadcrumb {
-    padding: var(--padding-16px) var(--padding-24px);
-    font-size: 16px;
-  }
+ .breadcrumb {
+  padding: var(--padding-16px) var(--padding-24px);
+  font-size: 16px;
+ }
 
-  .breadcrumb ol {
-    gap: 10px;
-  }
+ .breadcrumb ol {
+  gap: 10px;
+ }
 
-  .breadcrumb li:not(:last-child)::after {
-    margin-left: 10px;
-  }
+ .breadcrumb li:not(:last-child)::after {
+  margin-left: 10px;
+ }
 }
