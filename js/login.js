@@ -1,5 +1,6 @@
 import { apiRequest } from "./client.js";
 import { saveAuth } from "./auth.js";
+import { BASE_PATH } from "./config.js";
 
 const form = document.getElementById("loginForm");
 const error = document.getElementById("errorText");
@@ -24,7 +25,7 @@ form.addEventListener("submit", async (e) => {
 
   saveAuth(result.data);
 
-  window.location.href = "/index.html";
+  window.location.href = `${BASE_PATH}/index.html`;
  } catch (err) {
   error.textContent = err.message;
  }

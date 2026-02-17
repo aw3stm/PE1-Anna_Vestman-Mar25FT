@@ -1,11 +1,12 @@
 import { formatDate } from "./utils.js";
 import { getPostById } from "./posts.js";
+import { BASE_PATH } from "./config.js";
 
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
 
 if (!postId) {
- window.location.href = "/";
+ window.location.href = `${BASE_PATH}/index.html`;
 }
 
 async function loadPost() {

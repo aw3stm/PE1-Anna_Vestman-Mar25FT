@@ -1,12 +1,12 @@
-import { formatDate } from "./utils.js";
+import { formatDate, startInactivitySignout } from "./utils.js";
 import { getPosts } from "./posts.js";
 import { initCarousel } from "./carousel.js";
-import { startInactivitySignout, initPostPrev } from "./utils.js";
+import { BASE_PATH } from "./config.js";
 
 //Inactivity more than 10 min from admin > Signout
 function logout() {
  localStorage.removeItem("token");
- window.location.replace("/account/login.html");
+ window.location.replace("${BASE_PATH}/account/login.html");
 }
 
 if (localStorage.getItem("token")) {
@@ -38,7 +38,7 @@ function renderFeed(posts) {
   carousel.innerHTML += `
    <section class="cardWrapper">
     <div class="cardContent">
-     <img src="${post.media?.url || "/images/placeholder.jpg"}" alt="${post.alt}">
+     <img src="${post.media?.url || "${BASE_PATH}/images/placeholder.jpg"}" alt="${post.alt}">
      
      <div class="cardOverlay">
       <h2>${post.title}</h2>
@@ -49,18 +49,18 @@ function renderFeed(posts) {
     </button>
 
       <button class="navBtn left">
-       <img src="/icons/chevronLeft.svg" alt="Chevron left">
+       <img src="${BASE_PATH}/icons/chevronLeft.svg" alt="Chevron left">
       </button>
 
       <button class="navBtn right">
-       <img src="/icons/chevronRight.svg" alt="Chevron right">
+       <img src="${BASE_PATH}/icons/chevronRight.svg" alt="Chevron right">
       </button>
      </div>
     </div>
 
     <div class="cardText"> 
     <div class="minRead">
-      <img src="/icons/clockReadingMin.svg" alt="">
+      <img src="${BASE_PATH}/icons/clockReadingMin.svg" alt="">
       <p>${post.readTime || 5} minutes read</p>
      </div>
 
@@ -84,7 +84,7 @@ function renderFeed(posts) {
  });
 
  posts.slice(3, 15).forEach((post) => {
-  const imageUrl = post.media?.url || "/images/placeholder.jpg";
+  const imageUrl = post.media?.url || "${BASE_PATH}/images/placeholder.jpg";
   const text = post.body?.slice(0, 120) || "";
 
   grid.innerHTML += `
@@ -92,7 +92,7 @@ function renderFeed(posts) {
   <article class="gridWrapper clickablePost" data-id="${post.id}">
    <div class="cardContent gridContent">
  <button class="shareBtn gridShareBtn" data-id="${post.id}">
-   <img src="/icons/shareIconGreen.svg" alt="Share post">
+   <img src="${BASE_PATH}/icons/shareIconGreen.svg" alt="Share post">
   </button>
 
     <img 
@@ -145,7 +145,7 @@ function attachPostClicks() {
   post.addEventListener("click", () => {
    const id = post.dataset.id;
 
-   window.location.href = `/blog/post/index.html?id=${id}`;
+   window.location.href = `${BASE_PATH}/blog/post/index.html?id=${id}`;
   });
  });
 }
@@ -160,7 +160,7 @@ function attachCarouselButtonClicks() {
 
    const id = btn.dataset.id;
 
-   window.location.href = `/blog/post/index.html?id=${id}`;
+   window.location.href = `${BASE_PATH}/blog/post/index.html?id=${id}`;
   });
  });
 }

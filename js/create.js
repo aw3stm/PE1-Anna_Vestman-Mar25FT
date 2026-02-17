@@ -1,11 +1,12 @@
 import { createPost } from "./posts.js";
 import { isAdmin, isLoggedIn } from "./auth.js";
 import { startInactivitySignout, initPostPrev } from "./utils.js";
+import { BASE_PATH } from "./config.js";
 
 //Inactivity more than 10 min from admin > Signout
 function logout() {
  localStorage.removeItem("token");
- window.location.replace("/account/login.html");
+ window.location.replace(`${BASE_PATH}/account/login.html`);
 }
 
 if (localStorage.getItem("token")) {
@@ -17,7 +18,7 @@ if (localStorage.getItem("token")) {
 
 // ROUTE GUARD
 if (!isLoggedIn() || !isAdmin()) {
- window.location.replace("/account/login.html");
+ window.location.replace(`${BASE_PATH}/account/login.html`);
 }
 
 const form = document.getElementById("createPostForm");
@@ -109,7 +110,7 @@ form.addEventListener("submit", async (e) => {
   localStorage.removeItem("image_draft");
   localStorage.removeItem("alt_draft");
 
-  window.location.href = "./index.html";
+  window.location.href = `${BASE_PATH}/index.html`;
  } catch (error) {
   console.error("CREATE ERROR:", error.message);
   alert(error.message);

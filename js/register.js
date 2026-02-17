@@ -1,4 +1,5 @@
 import { apiRequest } from "./client.js";
+import { BASE_PATH } from "./config.js";
 
 const form = document.getElementById("registerForm");
 const error = document.getElementById("errorText");
@@ -27,7 +28,7 @@ form.addEventListener("submit", async (e) => {
   }
 
   // success → redirect to login
-  window.location.href = "/account/login.html";
+  window.location.href = `${BASE_PATH}/login.html`;
  } catch (err) {
   error.textContent = err.message;
   if (err.message.includes("exists")) {
