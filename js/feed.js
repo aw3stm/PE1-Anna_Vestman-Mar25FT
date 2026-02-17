@@ -1,6 +1,20 @@
 import { formatDate } from "./utils.js";
 import { getPosts } from "./posts.js";
 import { initCarousel } from "./carousel.js";
+import { startInactivitySignout, initPostPrev } from "./utils.js";
+
+//Inactivity more than 10 min from admin > Signout
+function logout() {
+ localStorage.removeItem("token");
+ window.location.replace("/account/login.html");
+}
+
+if (localStorage.getItem("token")) {
+ startInactivitySignout({
+  timeout: 10 * 60 * 1000,
+  onLogout: logout,
+ });
+}
 
 const carousel = document.getElementById("carouselItems");
 const grid = document.getElementById("gridContainer");

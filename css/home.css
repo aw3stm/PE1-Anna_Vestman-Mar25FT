@@ -1,7 +1,12 @@
 .titleHome {
  max-width: 420px;
- margin: 24px auto;
+ margin: 24px 0;
  text-align: center;
+}
+
+h2.subTitleHome {
+ text-align: center;
+ margin-bottom: 24px;
 }
 
 p.pHome {

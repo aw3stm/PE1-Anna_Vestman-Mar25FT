@@ -61,12 +61,12 @@ class PageHeader extends HTMLElement {
    <span>Home</span>
   </a>
 
-  <a href="/account/register.html" class="menuItem">
+  <a href="/index.html" class="menuItem">
    <img src="/icons/aboutIcon.png">
    <span>About</span>
   </a>
 
-  <a href="/contact.html" class="menuItem">
+  <a href="/index.html" class="menuItem">
    <img src="/icons/emailIcon.png">
    <span>Contact</span>
   </a>

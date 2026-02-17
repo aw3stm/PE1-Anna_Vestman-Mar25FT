@@ -24,6 +24,7 @@ export function startInactivitySignout({
   clearTimeout(inactivityTimer);
   inactivityTimer = setTimeout(onLogout, timeout);
  }
+ 
  events.forEach((event) => window.addEventListener(event, resetTimer, true));
  resetTimer();
  return () => {
@@ -35,7 +36,6 @@ export function startInactivitySignout({
 }
 
 //Preview window for edit and create page
-
 export function initPostPrev({
  titleInput,
  contentInput,
