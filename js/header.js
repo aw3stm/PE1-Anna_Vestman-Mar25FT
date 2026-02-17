@@ -1,5 +1,6 @@
 import { isAdmin, isLoggedIn, logout } from "./auth.js";
 import { initBreadcrumb } from "./breadcrumb.js";
+import { BASE_PATH } from "./config.js";
 
 document.addEventListener("DOMContentLoaded", initBreadcrumb);
 
@@ -11,42 +12,42 @@ class PageHeader extends HTMLElement {
  <div class="innerHeader">
 
   <div class="logo">
-   <a href="/index.html">
-    <img src="/icons/Mobile Logo.svg" class="logoMobile" alt="FreeTime mobile logo">
+   <a href="${BASE_PATH}/index.html">
+    <img src="${BASE_PATH}/icons/Mobile Logo.svg" class="logoMobile" alt="FreeTime mobile logo">
    </a>
 
-   <a href="/index.html">
-    <img src="/icons/FreeTime_Feed_brown_desktop.svg" class="logoDesktop" alt="FreeTime Feed desktop logo">
+   <a href="${BASE_PATH}/index.html">
+    <img src="${BASE_PATH}/icons/FreeTime_Feed_brown_desktop.svg" class="logoDesktop" alt="FreeTime Feed desktop logo">
    </a>
   </div>
 
   <div class="rightGroup">
   <nav class="navLinks publicNav">
-   <a href="/index.html">Home</a>
+   <a href="${BASE_PATH}/index.html">Home</a>
    <a href="#">About</a>
    <a href="#">Contact</a>
   </nav>
 
   <nav class="navLinks adminNav hidden">
-  <a href="/index.html">Home</a>
-   <a href="/blog/post/dashboard.html">Dashboard</a>
-   <a href="/blog/post/create.html">Create Post</a>
-   <a href="/blog/post/edit.html">Edit Post</a>
+  <a href="${BASE_PATH}/index.html">Home</a>
+   <a href="${BASE_PATH}/blog/post/dashboard.html">Dashboard</a>
+   <a href="${BASE_PATH}/blog/post/create.html">Create Post</a>
+   <a href="${BASE_PATH}/blog/post/edit.html">Edit Post</a>
   </nav>
 
   <div class="headerIcons">
 
-   <a id="loginIcon" href="/account/login.html">
-    <img src="/icons/adminIconHeader.png" alt="Sign in">
+   <a id="loginIcon" href="${BASE_PATH}/account/login.html">
+    <img src="${BASE_PATH}/icons/adminIconHeader.png" alt="Sign in">
    </a>
 
    <a id="logoutIcon" class="hidden">
-    <img src="/icons/signout_green.svg" alt="Sign out">
+    <img src="${BASE_PATH}/icons/signout_green.svg" alt="Sign out">
    </a>
 
    <button id="hamburger" class="hamburgerBtn">
-    <img src="/icons/hamburgerIconGreen.svg" class="iconOpen">
-    <img src="/icons/closeIconGreen.svg" class="iconClose">
+    <img src="${BASE_PATH}/icons/hamburgerIconGreen.svg" class="iconOpen">
+    <img src="${BASE_PATH}/icons/closeIconGreen.svg" class="iconClose">
    </button>
 </div>
   </div>
@@ -56,18 +57,18 @@ class PageHeader extends HTMLElement {
 <div class="mobileMenu">
  <div class="menuViewer">
 
-  <a href="/index.html" class="menuItem">
-   <img src="/icons/homeIcon.png">
+  <a href="${BASE_PATH}/index.html" class="menuItem">
+   <img src="${BASE_PATH}/icons/homeIcon.png">
    <span>Home</span>
   </a>
 
-  <a href="/index.html" class="menuItem">
-   <img src="/icons/aboutIcon.png">
+  <a href="${BASE_PATH}/index.html" class="menuItem">
+   <img src="${BASE_PATH}/icons/aboutIcon.png">
    <span>About</span>
   </a>
 
-  <a href="/index.html" class="menuItem">
-   <img src="/icons/emailIcon.png">
+  <a href="${BASE_PATH}/index.html" class="menuItem">
+   <img src="${BASE_PATH}/icons/emailIcon.png">
    <span>Contact</span>
   </a>
 
@@ -75,18 +76,18 @@ class PageHeader extends HTMLElement {
 
  <div id="menuAdmin" class="hidden">
 
-  <a href="/blog/post/dashboard.html" class="menuItem">
-   <img src="/icons/dashboardIcon.png">
+  <a href="${BASE_PATH}/blog/post/dashboard.html" class="menuItem">
+   <img src="${BASE_PATH}/icons/dashboardIcon.png">
    <span>Dashboard</span>
   </a>
 
-  <a href="/blog/post/create.html" class="menuItem">
-   <img src="/icons/createPost.png">
+  <a href="${BASE_PATH}/blog/post/create.html" class="menuItem">
+   <img src="${BASE_PATH}/icons/createPost.png">
    <span>Create Post</span>
   </a>
 
   <a id="logoutBtn" class="menuItem">
-   <img src="/icons/signOut.png">
+   <img src="${BASE_PATH}/icons/signOut.png">
    <span>Sign out</span>
   </a>
 
@@ -169,7 +170,7 @@ class PageHeader extends HTMLElement {
 
  handleLogout() {
   logout();
-  window.location.href = "/";
+  window.location.href = `${BASE_PATH}/index.html`;
  }
 }
 

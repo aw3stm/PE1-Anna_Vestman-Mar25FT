@@ -1,12 +1,12 @@
-import { formatDate } from "./utils.js";
+import { formatDate, startInactivitySignout } from "./utils.js";
 import { getPosts, deletePost } from "./posts.js";
 import { isAdmin, isLoggedIn } from "./auth.js";
-import { startInactivitySignout } from "./utils.js";
+import { BASE_PATH } from "./config.js";
 
 //Inactivity more than 10 min from admin > Signout
 function logout() {
  localStorage.removeItem("token");
- window.location.replace("/account/login.html");
+ window.location.replace(`${BASE_PATH}/account/login.html`);
 }
 
 if (localStorage.getItem("token")) {
@@ -18,7 +18,7 @@ if (localStorage.getItem("token")) {
 
 // GUARD > Check if the person are admin/owner
 if (!isLoggedIn() || !isAdmin()) {
- window.location.href = "/account/login.html";
+ window.location.href = `${BASE_PATH}/account/login.html`;
 }
 
 const list = document.getElementById("blogList");
@@ -30,7 +30,7 @@ list.addEventListener("click", async (e) => {
  if (editBtn) {
   e.stopPropagation();
   const id = editBtn.dataset.id;
-  window.location.href = `/blog/post/edit.html?id=${id}`;
+  window.location.href = `${BASE_PATH}/blog/post/edit.html?id=${id}`;
   return;
  }
  if (deleteBtn) {
@@ -49,7 +49,7 @@ list.addEventListener("click", async (e) => {
  if (postImg) {
   const post = postImg.closest(".dashboardPost");
   const id = post.dataset.id;
-  window.location.href = `/blog/post/index.html?id=${id}`;
+  window.location.href = `${BASE_PATH}/blog/post/index.html?id=${id}`;
  }
 });
 
@@ -80,11 +80,11 @@ function renderPosts(posts) {
   <div class="dashboardActions">
 
  <button data-id="${post.id}" class="iconBtn editBtn" title="Edit post">
-  <img src="/icons/editIconGreen.svg" alt="Edit">
+  <img src="${BASE_PATH}/icons/editIconGreen.svg" alt="Edit">
  </button>
 
  <button data-id="${post.id}" class="iconBtn deleteBtn" title="Delete post">
-  <img src="/icons/deleteIconGreen.svg" alt="Delete">
+  <img src="${BASE_PATH}/icons/deleteIconGreen.svg" alt="Delete">
  </button>
 
 </div>
@@ -131,7 +131,7 @@ function attachEditEvents() {
   btn.addEventListener("click", () => {
    const id = btn.dataset.id;
 
-   window.location.href = `/blog/post/edit.html?id=${id}`;
+   window.location.href = `${BASE_PATH}/blog/post/edit.html?id=${id}`;
   });
  });
 }

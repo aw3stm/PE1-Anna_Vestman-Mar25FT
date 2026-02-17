@@ -1,11 +1,12 @@
 import { getPostById, updatePost } from "./posts.js";
 import { isAdmin, isLoggedIn } from "./auth.js";
 import { startInactivitySignout, initPostPrev } from "./utils.js";
+import { BASE_PATH } from "./config.js";
 
 //Inactivity more than 10 min from admin > Signout
 function logout() {
  localStorage.removeItem("token");
- window.location.replace("/account/login.html");
+ window.location.replace(`${BASE_PATH}/account/login.html`);
 }
 
 if (localStorage.getItem("token")) {
@@ -17,7 +18,7 @@ if (localStorage.getItem("token")) {
 
 // ROUTE GUARD
 if (!isLoggedIn() || !isAdmin()) {
- window.location.replace("/account/login.html");
+ window.location.replace(`${BASE_PATH}/account/login.html`);
 }
 
 // URL PARAM
@@ -95,7 +96,7 @@ form.addEventListener("submit", async (e) => {
 
  try {
   await updatePost(postId, updatedData);
-  window.location.href = "/blog/post/dashboard.html";
+  window.location.href = `${BASE_PATH}/blog/post/dashboard.html`;
  } catch (error) {
   console.error(error.message);
   alert("Update failed");

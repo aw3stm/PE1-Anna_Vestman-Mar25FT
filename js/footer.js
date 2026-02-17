@@ -1,3 +1,5 @@
+import { BASE_PATH } from "./config.js";
+
 class pageFooter extends HTMLElement {
  connectedCallback() {
   this.innerHTML = `
@@ -7,7 +9,7 @@ class pageFooter extends HTMLElement {
     <div class="footerContent">
         <div class="footerTopText">
         <div class="footerLogo">
-        <img src="/icons/FreeTimeFeed_text_logo.svg" alt="FreeTime Feed main logo">
+        <img src="${BASE_PATH}/icons/FreeTimeFeed_text_logo.svg" alt="FreeTime Feed main logo">
     </div>
     <div class="footerSlogan">
         <p>Built for curious minds.</p>
@@ -16,16 +18,16 @@ class pageFooter extends HTMLElement {
     </div>
 
     <div class="footerLinks">
-        <a href="/index.html">Home</a>
-        <a href="/index.html">About</a>
-        <a href="/index.html">Contact</a>
+        <a href="${BASE_PATH}/index.html">Home</a>
+        <a href="${BASE_PATH}/index.html">About</a>
+        <a href="${BASE_PATH}/index.html">Contact</a>
         </div>
 
     <div class="footerSocialIcons">
-        <img src="/icons/YT Icon.svg" alt="Green Youtube logo">
-        <img src="/icons/TikTok Icon.svg" alt="Green TikTok logo">
-        <img src="/icons/Instagram Icon.svg" alt="Green Instagram logo">
-        <img src="/icons/Discord Icon.svg" alt="Green Discord logo">
+        <img src="${BASE_PATH}/icons/YT Icon.svg" alt="Green Youtube logo">
+        <img src="${BASE_PATH}/icons/TikTok Icon.svg" alt="Green TikTok logo">
+        <img src="${BASE_PATH}/icons/Instagram Icon.svg" alt="Green Instagram logo">
+        <img src="${BASE_PATH}/icons/Discord Icon.svg" alt="Green Discord logo">
         </div>
 
     <div class="footerPolicy">
