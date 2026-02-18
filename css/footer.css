@@ -11,7 +11,7 @@
  content: "";
  position: absolute;
  inset: 0;
- background-image: url("/images/laura-olsen-qy8u8sNv_LY-unsplash.jpg");
+ background-image: url("../images/laura-olsen-qy8u8sNv_LY-unsplash.jpg");
  background-size: cover;
  background-position: center;
  background-repeat: no-repeat;

@@ -5,12 +5,6 @@ import { BASE_PATH } from "./config.js";
 const form = document.getElementById("loginForm");
 const error = document.getElementById("errorText");
 
-form.addEventListener("keydown", async (e) => {
- if (e.key === "Enter" && e.target.tagName !== "TEXTAREA") {
-  e.preventDefault();
- }
-});
-
 form.addEventListener("submit", async (e) => {
  e.preventDefault();
 

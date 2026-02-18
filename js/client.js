@@ -1,5 +1,6 @@
 import { CONFIG } from "./config.js";
 
+//Check if user is approved as an admin
 export async function apiRequest(endpoint, options = {}) {
  const token = localStorage.getItem("token");
  const apiKey = localStorage.getItem("apiKey");
