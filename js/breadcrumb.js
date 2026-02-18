@@ -33,6 +33,11 @@ export function initBreadcrumb() {
  wrapper.innerHTML = "";
  wrapper.innerHTML += `<li><a href="${BASE_PATH}/index.html">Home</a></li>`;
 
+ if (window.location.pathname.includes("blog/post/index.html")) {
+  wrapper.innerHTML += `<li><span>Blog Post</span></li>`;
+  return;
+ }
+
  path.forEach((segment, index) => {
   const config = breadcrumb_map[segment];
   if (config === null) return;

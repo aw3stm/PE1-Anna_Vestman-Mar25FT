@@ -48,7 +48,8 @@
 }
 
 .pLoginText {
- justify-self: right;
+ align-self: flex-end;
+ text-align: right;
  font-size: var(--small-text-size);
  color: white;
 }

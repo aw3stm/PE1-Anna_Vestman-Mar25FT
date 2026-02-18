@@ -24,7 +24,7 @@ export function startInactivitySignout({
   clearTimeout(inactivityTimer);
   inactivityTimer = setTimeout(onLogout, timeout);
  }
- 
+
  events.forEach((event) => window.addEventListener(event, resetTimer, true));
  resetTimer();
  return () => {
@@ -54,7 +54,7 @@ export function initPostPrev({
    prevBody.textContent = contentInput.value || "Body text here";
   }
   if (prevImg) {
-   prevImg.src = imageInput.value.trim() || "/images/placeholder.jpg";
+   prevImg.src = imageInput.value.trim() || "images/placeholder.jpg";
   }
   if (prevAlt) {
    prevAlt.textContent = altInput.value || "";

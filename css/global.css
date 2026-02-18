@@ -279,7 +279,8 @@ section {
  color: var(--button-text-color);
  font-size: var(--p-size);
  font-family: var(--p-font);
- font-weight: 600;
+ font-weight: 500;
+ letter-spacing: .4px;
  line-height: 1.5;
  white-space: nowrap;
  padding: var(--padding-12px) var(--padding-32px);
