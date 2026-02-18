@@ -1,22 +1,24 @@
+import { BASE_PATH } from "./config.js";
+
 const breadcrumb_map = {
  blog: null,
  post: null,
 
  "dashboard.html": {
   label: "Dashboard",
-  href: "/blog/post/dashboard.html",
+  href: "blog/post/dashboard.html",
  },
  "create.html": {
   label: "Create Post",
-  href: "/blog/post/create.html",
+  href: "blog/post/create.html",
  },
  "edit.html": {
   label: "Edit Post",
-  href: "/blog/post/edit.html",
+  href: "blog/post/edit.html",
  },
  "blog/post/index.html": {
   label: "Blog Post",
-  href: "/blog/post/index.html",
+  href: "blog/post/index.html",
  },
 };
 
@@ -29,7 +31,7 @@ export function initBreadcrumb() {
  let accumulatedPath = "";
 
  wrapper.innerHTML = "";
- wrapper.innerHTML += `<li><a href="/">Home</a></li>`;
+ wrapper.innerHTML += `<li><a href="${BASE_PATH}/index.html">Home</a></li>`;
 
  path.forEach((segment, index) => {
   const config = breadcrumb_map[segment];
@@ -40,7 +42,7 @@ export function initBreadcrumb() {
 <li>
     ${
      config.href ?
-      `<a href="${config.href}">${config.label}</a>`
+      `<a href="${BASE_PATH}/${config.href}">${config.label}</a>`
      : `<span>${config.label}</span>`
     }
     </li>

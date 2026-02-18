@@ -19,10 +19,16 @@ body.menu-open {
 .innerHeader {
  height: var(--header-height);
  display: grid;
- grid-template-columns: auto 1fr auto;
+ grid-template-columns: auto 1fr;
  align-items: center;
  padding: var(--padding-16px);
  gap: var(--padding-16px);
+}
+
+.rightGroup {
+ display: flex;
+ justify-content: flex-end;
+ align-items: center;
 }
 
 #adminDeskHeader {
