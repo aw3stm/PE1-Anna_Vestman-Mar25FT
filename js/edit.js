@@ -16,12 +16,12 @@ if (localStorage.getItem("token")) {
  });
 }
 
-// ROUTE GUARD
+// ROUTE GUARD - Check if user is an admin
 if (!isLoggedIn() || !isAdmin()) {
  window.location.replace(`${BASE_PATH}/account/login.html`);
 }
 
-// URL PARAM
+// URL Param
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
 
@@ -32,23 +32,36 @@ const authorDisplay = document.getElementById("authorDisplay");
 const contentInput = document.getElementById("contentInput");
 const imageInput = document.getElementById("imageInput");
 const altInput = document.getElementById("altInput");
+const alertBox = document.getElementById("editAlert");
 
 if (!form) {
  throw new Error("Edit form not found");
 }
 
+//When admin enters via navbar without selecting a blog post
+//Disable the form fields
 function disableForm() {
  const inputs = form.querySelectorAll("input, textarea, button");
  inputs.forEach((el) => {
   el.disabled = true;
  });
 }
-
 if (!postId) {
  disableForm();
+
+ document.addEventListener("click", (e) => {
+  const clickInForm = form.contains(e.target);
+  const clickAlert = alertBox.contains(e.target);
+
+  if (clickInForm && !clickAlert) {
+   alertBox.classList.remove("hidden");
+  } else {
+   alertBox.classList.add("hidden");
+  }
+ });
 }
 
-// LOAD POST
+// Load post
 async function loadPost() {
  if (!postId) return;
 
@@ -81,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
  });
 });
 
-// UPDATE POST
+// Update post
 form.addEventListener("submit", async (e) => {
  e.preventDefault();
 

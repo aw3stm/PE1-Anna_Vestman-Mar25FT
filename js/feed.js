@@ -65,7 +65,7 @@ function renderFeed(posts) {
      </div>
 
      <p class="textInfoBottom">
-      ${post.body || ""}
+      ${post.body.slice(0, 150) || ""}${post.body?.length > 150 ? "..." : ""}
      </p>
 
      <div class="postMeta">
