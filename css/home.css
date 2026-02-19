@@ -1,6 +1,6 @@
 .titleHome {
  max-width: 420px;
- margin: 24px 0;
+ margin: 24px auto;
  text-align: center;
 }
 
@@ -236,7 +236,6 @@ p.pHome {
   width: 100%;
  }
  .titleHome {
-  max-width: 900px;
   font-size: var(--h1-size-desktop);
  }
  p.pHome {

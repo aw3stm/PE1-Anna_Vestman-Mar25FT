@@ -6,7 +6,7 @@ import { BASE_PATH } from "./config.js";
 //Inactivity more than 10 min from admin > Signout
 function logout() {
  localStorage.removeItem("token");
- window.location.replace("${BASE_PATH}/account/login.html");
+ window.location.replace(`${BASE_PATH}/account/login.html`);
 }
 
 if (localStorage.getItem("token")) {
@@ -60,7 +60,7 @@ function renderFeed(posts) {
 
     <div class="cardText"> 
     <div class="minRead">
-      <img src="${BASE_PATH}/icons/clockReadingMin.svg" alt="">
+      <img src="${BASE_PATH}/icons/clockReadingMin.svg" alt="Clock icon">
       <p>${post.readTime || 5} minutes read</p>
      </div>
 

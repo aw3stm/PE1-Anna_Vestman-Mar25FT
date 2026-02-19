@@ -107,20 +107,78 @@ p.textInfoBottom {
   transform 0.15s ease,
   background 0.15s ease;
 }
-
 .iconBtn:hover {
  transform: scale(1.05);
  background: rgba(0, 0, 0, 0.7);
 }
-
 .iconBtn {
  width: 36px;
  height: 36px;
 }
-
 .iconBtn img {
  width: 18px;
  height: 18px;
+}
+
+.delPos {
+ position: fixed;
+ inset: 0;
+ background: rgba(0, 0, 0, 0.6);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ z-index: 999;
+}
+
+.hidden {
+ display: none;
+}
+
+.deletePostContent {
+ background: #fff;
+ padding: var(--padding-24px);
+ border-radius: 8px;
+ width: 320px;
+ text-align: center;
+}
+
+.deletePostContent h3,
+.deletePostContent p {
+ color: #000;
+}
+
+.deletePostBtn {
+ margin-top: 16px;
+ display: flex;
+ justify-content: space-between;
+ gap: 8px;
+}
+
+.btn {
+ width: 100%;
+ padding: 10px;
+ border-radius: 12px;
+}
+
+.btn:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 8px 20px rgba(227, 227, 227, 0.35);
+ background: #cacaca;
+}
+
+#confirmDelete {
+ background: #b85c5c;
+ color: var(--main-text-color);
+}
+
+#confirmDelete:hover {
+ background: #9e4e4e;
+}
+
+#cancelDelete {
+ background: transparent;
+ color: #474746;
+ border: 1px solid #838a84;
 }
 
 @media (min-width: 768px) {
@@ -156,5 +214,23 @@ p.textInfoBottom {
  .iconBtn img {
   width: 24px;
   height: 24px;
+ }
+
+ .deletePostContent {
+  width: 420px;
+  padding: var(--padding-32px);
+ }
+
+ .deletePostContent h3 {
+  font-size: var(--h3-size-desktop);
+  margin-bottom: 12px;
+ }
+
+ .deletePostContent p {
+  font-size: var(--p-size-desktop);
+ }
+
+ .deletePostBtn {
+  gap: 12px;
  }
 }

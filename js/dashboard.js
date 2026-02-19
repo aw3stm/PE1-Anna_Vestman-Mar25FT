@@ -21,7 +21,16 @@ if (!isLoggedIn() || !isAdmin()) {
  window.location.href = `${BASE_PATH}/account/login.html`;
 }
 
+//Edit or delete blog post
+
 const list = document.getElementById("blogList");
+
+const deleteEvent = document.getElementById("deletePost");
+const confirmBtn = document.getElementById("confirmDelete");
+const cancelBtn = document.getElementById("cancelDelete");
+
+let postToDelete = null;
+
 list.addEventListener("click", async (e) => {
  const editBtn = e.target.closest(".editBtn");
  const deleteBtn = e.target.closest(".deleteBtn");
@@ -33,17 +42,11 @@ list.addEventListener("click", async (e) => {
   window.location.href = `${BASE_PATH}/blog/post/edit.html?id=${id}`;
   return;
  }
+
  if (deleteBtn) {
   e.stopPropagation();
-  const id = deleteBtn.dataset.id;
-  const confirmDelete = confirm("Do you really want to delete this post?");
-  if (!confirmDelete) return;
-  try {
-   await deletePost(id);
-   loadDashboard();
-  } catch (error) {
-   alert(error.message);
-  }
+  postToDelete = deleteBtn.dataset.id;
+  deleteEvent.classList.remove("hidden");
   return;
  }
  if (postImg) {
@@ -51,6 +54,23 @@ list.addEventListener("click", async (e) => {
   const id = post.dataset.id;
   window.location.href = `${BASE_PATH}/blog/post/index.html?id=${id}`;
  }
+});
+
+cancelBtn.addEventListener("click", () => {
+ deleteEvent.classList.add("hidden");
+ postToDelete = null;
+});
+
+confirmBtn.addEventListener("click", async () => {
+ if (!postToDelete) return;
+ try {
+  await deletePost(postToDelete);
+  await loadDashboard();
+ } catch (error) {
+  console.error(error.message);
+ }
+ deleteEvent.classList.add("hidden");
+ postToDelete = null;
 });
 
 async function loadDashboard() {
@@ -97,42 +117,6 @@ function renderPosts(posts) {
   `;
 
   list.appendChild(item);
- });
-
- attachDeleteEvents();
- attachEditEvents();
-}
-
-function attachDeleteEvents() {
- const buttons = document.querySelectorAll(".deleteBtn");
-
- buttons.forEach((btn) => {
-  btn.addEventListener("click", async () => {
-   const id = btn.dataset.id;
-
-   const confirmDelete = confirm("Delete this post?");
-
-   if (!confirmDelete) return;
-
-   try {
-    await deletePost(id);
-    loadDashboard();
-   } catch (error) {
-    alert(error.message);
-   }
-  });
- });
-}
-
-function attachEditEvents() {
- const buttons = document.querySelectorAll(".editBtn");
-
- buttons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-   const id = btn.dataset.id;
-
-   window.location.href = `${BASE_PATH}/blog/post/edit.html?id=${id}`;
-  });
  });
 }
 
